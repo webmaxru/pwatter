@@ -1,0 +1,30 @@
+<md-card>
+  <md-card-header>
+    <md-icon md-card-avatar>grade</md-icon>
+    <md-card-title>Tweets</md-card-title>
+    <md-card-subtitle>Choose between your timeline or favorites</md-card-subtitle>
+  </md-card-header>
+  <md-card-actions>
+    <button md-button color="accent" (click)="loadTimeLine()"><md-icon>list</md-icon>Load my timeline</button>
+    <button md-button color="accent" (click)="loadFavorites()"><md-icon>favorite</md-icon>Load my favorites</button>
+  </md-card-actions>
+  <md-card-content>
+
+    <md-progress-bar mode="indeterminate" *ngIf="isDataLoading"></md-progress-bar>
+
+    <md-nav-list *ngIf="tweets">
+      <a md-list-item *ngFor="let tweet of tweets" href="{{ 'https://twitter.com/statuses/' + tweet.id_str }}">
+        <img md-list-avatar [src]="tweet.user.profile_image_url_https" alt="{{tweet.user.name}}">
+        <h3 md-line>{{tweet.user.name}}</h3>
+        <p md-line>
+          <span>{{tweet.text}}</span>
+        </p>
+        <p md-line>
+          <small><md-icon>favorite</md-icon> {{tweet.favorite_count || 0}} &nbsp; <md-icon>autorenew</md-icon> {{tweet.retweet_count || 0}}</small>
+        </p>
+      </a>
+    </md-nav-list>
+
+  </md-card-content>
+
+</md-card>
