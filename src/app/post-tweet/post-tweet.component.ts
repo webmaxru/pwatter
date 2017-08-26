@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs/Subscription';
+
 import { Tweet } from '../tweet'
 import { TweetService } from './../tweet.service';
 import { MdSnackBar } from '@angular/material';
@@ -11,6 +13,9 @@ import { MdSnackBar } from '@angular/material';
 export class PostTweetComponent implements OnInit {
 
   message;
+  private snackBarDuration: number = 2000;
+  subscription: Subscription;
+  
 
   constructor(private tweetService: TweetService, public snackBar: MdSnackBar) { }
 
@@ -21,16 +26,16 @@ export class PostTweetComponent implements OnInit {
 
     if (messageForm.valid) {
 
-      this.tweetService.postTweet(messageForm.value.message).subscribe(
+      this.subscription = this.tweetService.postTweet(messageForm.value.message).subscribe(
         res => {
           console.log('[App] Tweet was posted', res)
           let snackBarRef = this.snackBar.open('Tweet was posted', null, {
-            duration: 2000
+            duration: this.snackBarDuration
           });
         },
         err => {
           let snackBarRef = this.snackBar.open('Tweet will be posted after you go online', null, {
-            duration: 2000
+            duration: this.snackBarDuration
           });
         });
 
@@ -38,6 +43,10 @@ export class PostTweetComponent implements OnInit {
 
     }
 
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
 }

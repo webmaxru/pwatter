@@ -1,0 +1,25 @@
+<md-card>
+  <md-card-header>
+    <md-icon md-card-avatar>grade</md-icon>
+    <md-card-title>Tweets</md-card-title>
+    <md-card-subtitle>Choose between your timeline or favorites</md-card-subtitle>
+  </md-card-header>
+  <md-card-actions>
+    <button md-button color="accent" (click)="loadTimeLine()"><md-icon>list</md-icon>Load my timeline</button>
+    <button md-button color="accent" (click)="loadFavorites()"><md-icon>favorite</md-icon>Load my favorites</button>
+  </md-card-actions>
+  <md-card-content>
+
+    <div *ngIf="tweets$ | async; else loading; let tweets">
+
+      <app-tweet-list [tweets]="tweets"></app-tweet-list>
+
+    </div>
+
+    <ng-template #loading>
+      <md-progress-bar mode="indeterminate" *ngIf="isInteractionStarted"></md-progress-bar>
+    </ng-template>
+
+  </md-card-content>
+
+</md-card>

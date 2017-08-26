@@ -3,67 +3,64 @@
   "project": {
     "name": "pwatter"
   },
-  "apps": [
-    {
-      "root": "src",
-      "outDir": "dist",
-      "assets": [
-        "assets",
-        "favicon.ico",
-        {
-          "glob": "workbox-sw.dev.v2.0.0.js",
-          "input": "../node_modules/workbox-sw/build/importScripts/",
-          "output": "./"
-        },
-        {
-          "glob": "workbox-routing.dev.v2.0.0.js",
-          "input": "../node_modules/workbox-routing/build/importScripts/",
-          "output": "./"
-        },
-        {
-          "glob": "workbox-runtime-caching.dev.v2.0.0.js",
-          "input": "../node_modules/workbox-runtime-caching/build/importScripts/",
-          "output": "./"
-        },
-        {
-          "glob": "workbox-cacheable-response.dev.v2.0.0.js",
-          "input": "../node_modules/workbox-cacheable-response/build/importScripts/",
-          "output": "./"
-        },
-        {
-          "glob": "workbox-background-sync.dev.v2.0.0.js",
-          "input": "../node_modules/workbox-background-sync/build/importScripts/",
-          "output": "./"
-        },
-        "sw-handmade.js"
-      ],
-      "index": "index.html",
-      "main": "main.ts",
-      "polyfills": "polyfills.ts",
-      "test": "test.ts",
-      "tsconfig": "tsconfig.app.json",
-      "testTsconfig": "tsconfig.spec.json",
-      "prefix": "app",
-      "styles": [
-        "styles.css",
-        "custom-theme.scss"
-      ],
-      "scripts": [],
-      "environmentSource": "environments/environment.ts",
-      "environments": {
-        "dev": "environments/environment.ts",
-        "prod": "environments/environment.prod.ts"
+  "apps": [{
+    "root": "src",
+    "outDir": "dist",
+    "assets": [
+      "assets",
+      "favicon.ico",
+      "manifest.json",
+      {
+        "glob": "workbox-sw.dev.v2.0.0.js",
+        "input": "../node_modules/workbox-sw/build/importScripts/",
+        "output": "./"
       },
-      "serviceWorker": false
+      {
+        "glob": "workbox-routing.dev.v2.0.0.js",
+        "input": "../node_modules/workbox-routing/build/importScripts/",
+        "output": "./"
+      },
+      {
+        "glob": "workbox-runtime-caching.dev.v2.0.0.js",
+        "input": "../node_modules/workbox-runtime-caching/build/importScripts/",
+        "output": "./"
+      },
+      {
+        "glob": "workbox-cacheable-response.dev.v2.0.0.js",
+        "input": "../node_modules/workbox-cacheable-response/build/importScripts/",
+        "output": "./"
+      },
+      {
+        "glob": "workbox-background-sync.dev.v2.0.0.js",
+        "input": "../node_modules/workbox-background-sync/build/importScripts/",
+        "output": "./"
+      }
+    ],
+    "index": "index.html",
+    "main": "main.ts",
+    "polyfills": "polyfills.ts",
+    "test": "test.ts",
+    "tsconfig": "tsconfig.app.json",
+    "testTsconfig": "tsconfig.spec.json",
+    "prefix": "app",
+    "serviceWorker": false,
+    "styles": [
+      "styles.css",
+      "custom-theme.scss"
+    ],
+    "scripts": [],
+    "environmentSource": "environments/environment.ts",
+    "environments": {
+      "dev": "environments/environment.ts",
+      "prod": "environments/environment.prod.ts"
     }
-  ],
+  }],
   "e2e": {
     "protractor": {
       "config": "./protractor.conf.js"
     }
   },
-  "lint": [
-    {
+  "lint": [{
       "project": "src/tsconfig.app.json",
       "exclude": "**/node_modules/**"
     },

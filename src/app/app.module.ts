@@ -12,8 +12,11 @@ import { AppComponent } from './app.component';
 
 import { ConfigService } from './config.service';
 import { TweetListComponent } from './tweet-list/tweet-list.component';
+import { TweetFeedsComponent } from './tweet-feeds/tweet-feeds.component';
+
 import { PostTweetComponent } from './post-tweet/post-tweet.component';
 import { ControlPushComponent } from './control-push/control-push.component';
+import { ControlBroadcastComponent } from './control-broadcast/control-broadcast.component';
 
 import { TweetService } from './tweet.service';
 
@@ -27,7 +30,9 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     AppComponent,
     TweetListComponent,
     PostTweetComponent,
-    ControlPushComponent
+    ControlPushComponent,
+    TweetFeedsComponent,
+    ControlBroadcastComponent
   ],
   imports: [
     BrowserModule,

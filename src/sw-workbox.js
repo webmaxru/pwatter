@@ -21,11 +21,13 @@ const avatarsCacheStrategy = workboxSW.strategies.cacheFirst({
     maxEntries: 10,
     maxAgeSeconds: 7 * 24 * 60 * 60 // 1 week
   },
-  cacheableResponse: {statuses: [0, 200]}
+  cacheableResponse: {
+    statuses: [0, 200]
+  }
 })
 
 workboxSW.router.registerRoute(
-  /(http[s]?:\/\/)?([^\/\s]+\/)timeline/,
+  /(http[s]?:\/\/)?([^\/\s]+\/)(timeline|favorites)/,
   apiStrategy
 )
 
@@ -104,8 +106,70 @@ router.registerRoutes({
 router.addFetchListener();
 
 router.setDefaultHandler({
-  handler: ({event}) => {
+  handler: ({
+    event
+  }) => {
     console.log('[SW] Routed through the default handler', event.request);
     return fetch(event.request);
   },
 });
+
+// Push
+
+self.addEventListener('push', function (event) {
+  console.log('[SW] Received push event')
+
+  var notificationData = {}
+
+  if (event.data) {
+    notificationData = event.data.json().notification // "notification node is specific for @angular/service-worker
+  } else {
+    notificationData = {
+      title: 'Something Has Happened',
+      message: 'Something you might want to check out',
+      icon: '/assets/images/logo.png'
+    }
+  }
+
+  self.registration.showNotification(notificationData.title, notificationData)
+})
+
+self.addEventListener('notificationclick', function (event) {
+  console.log('[SW] Received notificationclick event')
+
+  event.notification.close()
+
+  if (event.action == 'opentweet') {
+    console.log('[SW] Performing action opentweet')
+
+    event.waitUntil(
+      clients.openWindow(event.notification.data.url).then(function (windowClient) {
+        // do something with the windowClient.
+      })
+    )
+  } else {
+    console.log('[SW] Performing default click action')
+
+    // This looks to see if the current is already open and
+    // focuses if it is
+    event.waitUntil(
+
+      clients.matchAll({
+        includeUncontrolled: true,
+        type: 'window'
+      })
+      .then(function (clientList) {
+        for (var i = 0; i < clientList.length; i++) {
+          var client = clientList[i]
+          if (client.url == '/' && 'focus' in client)
+            return client.focus()
+        }
+        if (clients.openWindow)
+          return clients.openWindow('/')
+      }))
+  }
+})
+
+self.addEventListener('notificationclose', function (event) {
+  console.log('[SW] Received notificationclose event')
+})

@@ -21,6 +21,10 @@ md-sidenav {
     width: 200px;
 }
 
+md-card-actions > button {
+  margin-bottom: 16px;
+}
+
 .content {
   padding: 16px;
 }

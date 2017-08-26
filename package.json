@@ -10,10 +10,11 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build-prod": "ng build --prod --output-hashing=false",
-    "build-sw-workbox-default": "workbox generate:sw",
     "build-sw-workbox": "node build-sw-workbox.js",
     "build-full-workbox": "npm run build-prod && npm run build-sw-workbox",
-    "build-app-workbox-default": "npm run build-prod && npm run build-sw-workbox-default"
+    "build-full-workbox-default": "npm run build-prod && workbox generate:sw",
+    "build-full-ngsw": "npm run build-prod && cp ./src/worker-basic.PATCHED.js ./dist/worker-basic.min.js",
+    "build-full-handmade": "npm run build-prod && cp ./src/sw-handmade.js ./dist/"
   },
   "private": true,
   "dependencies": {

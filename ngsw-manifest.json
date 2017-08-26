@@ -1,22 +1,19 @@
 {
-  "static.ignore": [
-    "^\/assets\/ignore.*$"
-  ],
   "routing": {
     "index": "/index.html",
     "routes": {
       "/": {
-        "prefix": false
+        "match": "exact"
       },
       "/some-routes-group-prefix": {
-        "prefix": true
+        "match": "prefix"
       },
       "/some-routes-group-prefix-no-files": {
-        "prefix": true,
+        "match": "prefix",
         "onlyWithoutExtension": true
       },
       "/some/specific-route": {
-        "prefix": false
+        "match": "exact"
       },
       "^/regex/.*/route$": {
         "match": "regex"
@@ -24,19 +21,24 @@
     }
   },
   "external": {
-    "urls": [{
-      "url": "https://fonts.googleapis.com/css?family=Material+Icons"
-    }, {
-      "url": "https://fonts.googleapis.com/css?family=Roboto:400,300"
-    }, {
-      "url": "https://fonts.gstatic.com/s/materialicons/v22/2fcrYFNaTjcS6g4U3t-Y5UEw0lE80llgEseQY3FEmqw.woff2"
-    }]
+    "urls": [
+      {
+        "url": "https://fonts.googleapis.com/css?family=Material+Icons"
+      },
+      {
+        "url": "https://fonts.googleapis.com/css?family=Roboto:400,300"
+      },
+      {
+        "url": "https://fonts.gstatic.com/s/materialicons/v22/2fcrYFNaTjcS6g4U3t-Y5UEw0lE80llgEseQY3FEmqw.woff2"
+      }
+    ]
   },
   "dynamic": {
-    "group": [{
-        "name": "favorites",
+    "group": [
+      {
+        "name": "avatars",
         "urls": {
-          "http://localhost:3000/favorites/": {
+          "https://pbs.twimg.com/profile_images/": {
             "match": "prefix"
           }
         },
@@ -44,28 +46,30 @@
           "optimizeFor": "performance",
           "strategy": "lru",
           "maxAgeMs": 3600000,
-          "maxEntries": 2
+          "maxEntries": 20
         }
       },
       {
-        "name": "timeline",
+        "name": "api",
         "urls": {
-          "http://localhost:3000/timeline/": {
-            "match": "prefix"
+          "^.*/timeline$": {
+            "match": "regex"
+          },
+          "^.*/favorites$": {
+            "match": "regex"
           }
         },
         "cache": {
           "optimizeFor": "freshness",
           "strategy": "fifo",
           "maxAgeMs": 3600000,
-          "maxEntries": 2,
+          "maxEntries": 10,
           "networkTimeoutMs": 1000
         }
       }
     ]
   },
   "push": {
-    "showNotifications": true,
-    "backgroundOnly": false
+    "showNotifications": true
   }
 }

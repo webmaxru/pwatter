@@ -8,6 +8,9 @@ import 'rxjs/add/observable/throw';
 
 import { ConfigService } from './config.service';
 
+import { Tweet } from './tweet'
+
+
 @Injectable()
 export class TweetService {
 

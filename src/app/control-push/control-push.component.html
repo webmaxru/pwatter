@@ -8,6 +8,12 @@
   <md-card-actions>
     <button md-raised-button (click)="subscribeToPush()"><md-icon>notifications_active</md-icon>Subscribe</button>
     <button md-raised-button (click)="unsubscribeFromPush()"><md-icon>notifications_off</md-icon>Unsubscribe</button>
-    <button md-raised-button (click)="registerForPush()"><md-icon>notifications_active</md-icon>Subscribe (NGSW)</button>
   </md-card-actions>
+
+  <md-card-content>
+
+    <app-tweet-list [tweets]="tweets"></app-tweet-list>
+
+  </md-card-content>
+
 </md-card>
