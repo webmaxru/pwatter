@@ -4,7 +4,7 @@ This is demo repo for my session "Creating Angular Progressive Web App", so ther
 
 Blogpost will follow soon (as well as some PRs to Workbox docs)
 
-![PWAtter](https://raw.githubusercontent.com/webmaxru/pwatter/master/src/imagesicons/push.gif "PWAtter")
+![PWAtter](https://raw.githubusercontent.com/webmaxru/pwatter/master/src/assets/images/logo.png "PWAtter")
 
 [DEMO](https://pwa-workshop-angular.firebaseapp.com/)
 [Backend used](https://github.com/webmaxru/pwa-workshop-api/)
@@ -35,12 +35,12 @@ And serve the `dist` folder using any static webserver.
 
 ### Push notifications
 
-![Push notifications](https://raw.githubusercontent.com/webmaxru/pwatter/master/src/images/push.gif "Push notifications")
+![Push notifications](https://raw.githubusercontent.com/webmaxru/pwatter/master/src/assets/images/push.gif "Push notifications")
 
 ### Replay offline requests
 
-![Background sync](https://raw.githubusercontent.com/webmaxru/pwatter/master/src/images/sync.gif "Background sync")
+![Background sync](https://raw.githubusercontent.com/webmaxru/pwatter/master/src/assets/images/sync.gif "Background sync")
 
 ### Subscribe to updates
 
-![Broadcast channel](https://raw.githubusercontent.com/webmaxru/pwatter/master/src/images/broadcast.gif "Broadcast channel")
+![Broadcast channel](https://raw.githubusercontent.com/webmaxru/pwatter/master/src/assets/images/broadcast.gif "Broadcast channel")
