@@ -21,7 +21,8 @@
     "serviceWorker": false,
     "styles": [
       "styles.css",
-      "custom-theme.scss"
+      "custom-theme.scss",
+      "manifest.json"
     ],
     "scripts": [],
     "environmentSource": "environments/environment.ts",
