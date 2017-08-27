@@ -38,78 +38,10 @@ export class ControlPushComponent implements OnInit {
 
   subscribeToPush() {
 
-    this.convertedVapidKey = this.urlBase64ToUint8Array(this.vapidPublicKey);
-
-    navigator['serviceWorker']
-      .getRegistration(this.swScope)
-      .then(registration => {
-
-        registration.pushManager
-          .subscribe({ userVisibleOnly: true, applicationServerKey: this.convertedVapidKey })
-          .then(subscription => {
-
-            this.addSubscriber(subscription)
-
-          });
-
-      })
-      .catch(err => {
-        console.log(err);
-      })
 
   }
 
   unsubscribeFromPush() {
-
-    navigator['serviceWorker']
-      .getRegistration(this.swScope)
-      .then(registration => {
-
-        registration.pushManager
-          .getSubscription()
-          .then(subscription => {
-
-            this.deleteSubscriber(subscription)
-
-          })
-
-      })
-      .catch(err => {
-        console.log(err);
-      })
-
-  }
-
-  subscribeToPushNGSW(): void {
-
-    this
-      .sw
-      .registerForPush({ applicationServerKey: this.vapidPublicKey })
-      .subscribe(subscription => {
-
-        console.log('[App] Subscription object received', subscription)
-
-        this.addSubscriber(subscription)
-
-      });
-
-    this
-      .sw
-      .push
-      .subscribe(res => {
-        console.log('[App] Push message received', res)
-        this.tweets.push({
-          id_str: res.notification.tag,
-          text: res.notification.body,
-          created_at: res.notification.data.retweet_count,
-          user: {
-            name: res.notification.title,
-            profile_image_url_https: res.notification.icon
-          },
-          favorite_count: res.notification.data.favorite_count,
-          retweet_count: res.notification.data.retweet_count
-        })
-      });
 
   }
 

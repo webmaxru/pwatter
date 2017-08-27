@@ -9,32 +9,7 @@
     "assets": [
       "assets",
       "favicon.ico",
-      "manifest.json",
-      {
-        "glob": "workbox-sw.dev.v2.0.0.js",
-        "input": "../node_modules/workbox-sw/build/importScripts/",
-        "output": "./"
-      },
-      {
-        "glob": "workbox-routing.dev.v2.0.0.js",
-        "input": "../node_modules/workbox-routing/build/importScripts/",
-        "output": "./"
-      },
-      {
-        "glob": "workbox-runtime-caching.dev.v2.0.0.js",
-        "input": "../node_modules/workbox-runtime-caching/build/importScripts/",
-        "output": "./"
-      },
-      {
-        "glob": "workbox-cacheable-response.dev.v2.0.0.js",
-        "input": "../node_modules/workbox-cacheable-response/build/importScripts/",
-        "output": "./"
-      },
-      {
-        "glob": "workbox-background-sync.dev.v2.0.0.js",
-        "input": "../node_modules/workbox-background-sync/build/importScripts/",
-        "output": "./"
-      }
+      "manifest.json"
     ],
     "index": "index.html",
     "main": "main.ts",
