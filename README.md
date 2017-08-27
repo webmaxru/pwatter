@@ -4,7 +4,7 @@ This is demo repo for my session/workshop __Creating Angular Progressive Web App
 
 Blogpost will follow soon (as well as some PRs to Workbox docs)
 
-![PWAtter](https://raw.githubusercontent.com/webmaxru/pwatter/master/src/assets/images/logo.png "PWAtter")
+<img src="https://raw.githubusercontent.com/webmaxru/pwatter/master/src/assets/images/logo.png" width="200" height="200">
 
 [DEMO](https://pwa-workshop-angular.firebaseapp.com/)
 
