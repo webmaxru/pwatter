@@ -1,13 +1,14 @@
 # Progressive Web App with Angular 5 beta 4 + [Workbox 2.0](https://www.workboxjs.org/)
 
-This is demo repo for my session "Creating Angular Progressive Web App", so there are scaffolds for handcoded Service Worker and Angular Service Worker - nevermind, they are not in use.
+This is demo repo for my session/workshop __Creating Angular Progressive Web App__, so there are scaffolds for handcoded Service Worker and Angular Service Worker - nevermind, they are not in use.
 
 Blogpost will follow soon (as well as some PRs to Workbox docs)
 
 ![PWAtter](https://raw.githubusercontent.com/webmaxru/pwatter/master/src/assets/images/logo.png "PWAtter")
 
 [DEMO](https://pwa-workshop-angular.firebaseapp.com/)
-[Backend used](https://github.com/webmaxru/pwa-workshop-api/)
+
+[Backend used for the demo](https://github.com/webmaxru/pwa-workshop-api/)
 
 Questions? [@webmaxru](https://twitter.com/webmaxru/)
 
