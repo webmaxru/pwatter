@@ -1,28 +1,46 @@
-# Pwatter
+# Progressive Web App with Angular 5 beta 4 + [Workbox 2.0](https://www.workboxjs.org/)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.6.
+This is demo repo for my session "Creating Angular Progressive Web App", so there are scaffolds for handcoded Service Worker and Angular Service Worker - nevermind, they are not in use.
 
-## Development server
+Blogpost will follow soon (as well as some PRs to Workbox docs)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+![PWAtter](https://raw.githubusercontent.com/webmaxru/pwatter/master/src/imagesicons/push.gif "PWAtter")
 
-## Code scaffolding
+[DEMO](https://pwa-workshop-angular.firebaseapp.com/)
+[Backend used](https://github.com/webmaxru/pwa-workshop-api/)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
+Questions? [@webmaxru](https://twitter.com/webmaxru/)
 
-## Build
+To get started, install Angular CLI from [npm](https://www.npmjs.com/).
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+```
+$ npm install -g @angular/cli
+```
 
-## Running unit tests
+Then install dependencies and types:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
+$ npm install
+```
 
-## Running end-to-end tests
+Then build the app:
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
+```
+$ npm run build-full-workbox
+```
 
-## Further help
+And serve the `dist` folder using any static webserver.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Some of features
+
+### Push notifications
+
+![Push notifications](https://raw.githubusercontent.com/webmaxru/pwatter/master/src/images/push.gif "Push notifications")
+
+### Replay offline requests
+
+![Background sync](https://raw.githubusercontent.com/webmaxru/pwatter/master/src/images/sync.gif "Background sync")
+
+### Subscribe to updates
+
+![Broadcast channel](https://raw.githubusercontent.com/webmaxru/pwatter/master/src/images/broadcast.gif "Broadcast channel")
