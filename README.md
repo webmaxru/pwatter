@@ -2,7 +2,7 @@
 
 This is demo repo for my session/workshop __Creating Angular Progressive Web App__, so there are scaffolds for handcoded Service Worker and Angular Service Worker - nevermind, they are not in use.
 
-Blogpost will follow soon (as well as some PRs to Workbox docs)
+Read [Using Workbox 2 and Angular 5 to create a Progressive Web App. Part 1: App shell](https://medium.com/@webmaxru/using-workbox-2-and-angular-5-to-create-a-progressive-web-app-part-1-app-shell-b14f9872384a) article for the details.
 
 <img src="https://raw.githubusercontent.com/webmaxru/pwatter/master/src/assets/images/logo.png" width="200" height="200">
 
