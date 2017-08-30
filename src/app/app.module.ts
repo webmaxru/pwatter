@@ -5,7 +5,6 @@ import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 
 import { MaterialModule } from './material.module';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import 'hammerjs';
 
 import { AppComponent } from './app.component';
@@ -22,8 +21,6 @@ import { TweetService } from './tweet.service';
 
 import {WindowRef} from './window-ref';
 
-import { ServiceWorkerModule } from '@angular/service-worker';
-
 
 @NgModule({
   declarations: [
@@ -39,9 +36,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     BrowserAnimationsModule,
     HttpModule,
     FormsModule,
-    MaterialModule,
-    FlexLayoutModule,
-    ServiceWorkerModule
+    MaterialModule
   ],
   providers: [
     ConfigService,

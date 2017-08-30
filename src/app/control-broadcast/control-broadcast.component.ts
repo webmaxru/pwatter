@@ -5,8 +5,6 @@ import { WindowRef } from './../window-ref';
 
 declare const BroadcastChannel;
 
-import { NgServiceWorker } from '@angular/service-worker';
-
 @Component({
   selector: 'app-control-broadcast',
   templateUrl: './control-broadcast.component.html',
@@ -14,13 +12,26 @@ import { NgServiceWorker } from '@angular/service-worker';
 })
 export class ControlBroadcastComponent implements OnInit {
 
-  constructor(public refreshSnackBar: MdSnackBar, private winRef: WindowRef, public sw: NgServiceWorker) { }
+  constructor(public refreshSnackBar: MdSnackBar, private winRef: WindowRef) { }
 
   ngOnInit() {
   }
 
   subscribeToUpdates() {
 
+    const updateChannel = new BroadcastChannel('pwatter-channel');
+
+    updateChannel.addEventListener('message', event => {
+
+      console.log('[App] Cache updated', event.data.payload.updatedUrl);
+
+      let refreshSnackBarRef = this.refreshSnackBar.open('Newer version of the app is available', 'Refresh');
+
+      refreshSnackBarRef.onAction().subscribe(() => {
+        this.winRef.nativeWindow.location.reload()
+      });
+
+    });
 
   }
 

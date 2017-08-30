@@ -5,6 +5,7 @@ module.exports = {
   ],
   "swDest": "dist/sw-default.js",
   "globIgnores": [
-    "../workbox-cli-config.js"
+    "../workbox-cli-config.js",
+    "3rdpartylicenses.txt"
   ]
 };

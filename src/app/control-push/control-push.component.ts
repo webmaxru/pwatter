@@ -8,9 +8,6 @@ import { Tweet } from '../tweet'
 declare const fetch;
 declare const navigator;
 
-
-import { NgServiceWorker } from '@angular/service-worker';
-
 @Component({
   selector: 'app-control-push',
   templateUrl: './control-push.component.html',
@@ -27,7 +24,7 @@ export class ControlPushComponent implements OnInit {
 
   tweets: Tweet[] = [];
 
-  constructor(public sw: NgServiceWorker, private configService: ConfigService, public snackBar: MdSnackBar) {
+  constructor(private configService: ConfigService, public snackBar: MdSnackBar) {
   }
 
   ngOnInit() {
@@ -38,10 +35,45 @@ export class ControlPushComponent implements OnInit {
 
   subscribeToPush() {
 
+    this.convertedVapidKey = this.urlBase64ToUint8Array(this.vapidPublicKey);
+
+    navigator['serviceWorker']
+      .getRegistration(this.swScope)
+      .then(registration => {
+
+        registration.pushManager
+          .subscribe({ userVisibleOnly: true, applicationServerKey: this.convertedVapidKey })
+          .then(subscription => {
+
+            this.addSubscriber(subscription)
+
+          });
+
+      })
+      .catch(err => {
+        console.log(err);
+      })
 
   }
 
   unsubscribeFromPush() {
+
+    navigator['serviceWorker']
+      .getRegistration(this.swScope)
+      .then(registration => {
+
+        registration.pushManager
+          .getSubscription()
+          .then(subscription => {
+
+            this.deleteSubscriber(subscription)
+
+          })
+
+      })
+      .catch(err => {
+        console.log(err);
+      })
 
   }
 
