@@ -1,0 +1,36 @@
+{
+  "index": "/index.html",
+  "appData": {
+    "test": true
+  },
+  "assetGroups": [{
+    "name": "appshell",
+    "resources": {
+      "files": [
+        "/**/*.html",
+        "/**/*.js",
+        "/**/*.css",
+        "/assets/**/*",
+        "!/ngsw-worker.js"
+      ],
+      "versionedFiles": [],
+      "urls": [
+        "/absolute/**",
+        "relative/*.txt"
+      ]
+    }
+  }],
+  "dataGroups": [{
+    "name": "api",
+    "urls": [
+      "/favorites/**",
+      "/timeline/**"
+    ],
+    "cacheConfig": {
+      "maxSize": 100,
+      "maxAge": "3d",
+      "timeout": "1m",
+      "strategy": "freshness"
+    }
+  }]
+}

@@ -11,7 +11,7 @@ if (environment.production) {
 platformBrowserDynamic()
   .bootstrapModule(AppModule)
   .then(() => {
-    registerServiceWorker('sw-default')
+    registerServiceWorker('ngsw-worker')
   });
 
 function registerServiceWorker(swName: string) {
