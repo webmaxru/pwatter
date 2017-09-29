@@ -15,22 +15,33 @@
       ],
       "versionedFiles": [],
       "urls": [
-        "/absolute/**",
-        "relative/*.txt"
+        "https://fonts.googleapis.com/css?family=Material+Icons",
+        "https://fonts.gstatic.com/s/materialicons/v29/2fcrYFNaTjcS6g4U3t-Y5UEw0lE80llgEseQY3FEmqw.woff2"
       ]
     }
   }],
   "dataGroups": [{
-    "name": "api",
+    "name": "api-freshness",
     "urls": [
-      "/favorites/**",
-      "/timeline/**"
+      "/timeline"
     ],
     "cacheConfig": {
       "maxSize": 100,
       "maxAge": "3d",
       "timeout": "1m",
       "strategy": "freshness"
+    }
+  },
+  {
+    "name": "api-performance",
+    "urls": [
+      "/favorites"
+    ],
+    "cacheConfig": {
+      "maxSize": 100,
+      "maxAge": "3d",
+      "timeout": "1m",
+      "strategy": "performance"
     }
   }]
 }

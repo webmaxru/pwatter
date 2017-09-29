@@ -21,6 +21,8 @@ import { TweetService } from './tweet.service';
 
 import {WindowRef} from './window-ref';
 
+import {ServiceWorkerModule} from '@angular/service-worker'
+
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import {WindowRef} from './window-ref';
     BrowserAnimationsModule,
     HttpModule,
     FormsModule,
-    MaterialModule
+    MaterialModule,
+    ServiceWorkerModule.register('/ngsw-worker.js')
   ],
   providers: [
     ConfigService,
