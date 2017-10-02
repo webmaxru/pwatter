@@ -9,8 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build-prod": "ng build --prod --output-hashing=false",
-    "build-full-ngsw": "npm run build-prod && node_modules/.bin/ngsw-config dist ./src/ngsw.json && cp node_modules/@angular/service-worker/ngsw-worker.js ./dist/ngsw-worker.js"
+    "build-prod-ngsw": "ng build --prod && node_modules/.bin/ngsw-config dist ./src/ngsw-config.json && cp node_modules/@angular/service-worker/ngsw-worker.js ./dist/ngsw-worker.js"
   },
   "private": true,
   "dependencies": {
