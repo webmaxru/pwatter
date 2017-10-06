@@ -1,43 +1,43 @@
 import { NgModule } from '@angular/core';
 
-import { MdButtonModule, MdCheckboxModule, MdToolbarModule, MdCardModule, MdInputModule, MdSelectModule, MdMenuModule, MdSidenavModule, MdListModule, MdIconModule, MdSlideToggleModule, MdSnackBarModule, MdTabsModule, MdProgressBarModule, MdRadioModule, MdProgressSpinnerModule } from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatToolbarModule, MatCardModule, MatInputModule, MatSelectModule, MatMenuModule, MatSidenavModule, MatListModule, MatIconModule, MatSlideToggleModule, MatSnackBarModule, MatTabsModule, MatProgressBarModule, MatRadioModule, MatProgressSpinnerModule } from '@angular/material';
 
 @NgModule({
     imports: [
-        MdButtonModule,
-        MdCheckboxModule,
-        MdToolbarModule,
-        MdCardModule,
-        MdInputModule,
-        MdSelectModule,
-        MdMenuModule,
-        MdSidenavModule,
-        MdListModule,
-        MdIconModule,
-        MdSlideToggleModule,
-        MdSnackBarModule,
-        MdTabsModule,
-        MdProgressBarModule,
-        MdRadioModule,
-        MdProgressSpinnerModule
+        MatButtonModule,
+        MatCheckboxModule,
+        MatToolbarModule,
+        MatCardModule,
+        MatInputModule,
+        MatSelectModule,
+        MatMenuModule,
+        MatSidenavModule,
+        MatListModule,
+        MatIconModule,
+        MatSlideToggleModule,
+        MatSnackBarModule,
+        MatTabsModule,
+        MatProgressBarModule,
+        MatRadioModule,
+        MatProgressSpinnerModule
     ],
     exports: [
-        MdButtonModule,
-        MdCheckboxModule,
-        MdToolbarModule,
-        MdCardModule,
-        MdInputModule,
-        MdSelectModule,
-        MdMenuModule,
-        MdSidenavModule,
-        MdListModule,
-        MdIconModule,
-        MdSlideToggleModule,
-        MdSnackBarModule,
-        MdTabsModule,
-        MdProgressBarModule,
-        MdRadioModule,
-        MdProgressSpinnerModule
+        MatButtonModule,
+        MatCheckboxModule,
+        MatToolbarModule,
+        MatCardModule,
+        MatInputModule,
+        MatSelectModule,
+        MatMenuModule,
+        MatSidenavModule,
+        MatListModule,
+        MatIconModule,
+        MatSlideToggleModule,
+        MatSnackBarModule,
+        MatTabsModule,
+        MatProgressBarModule,
+        MatRadioModule,
+        MatProgressSpinnerModule
     ],
 })
 export class MaterialModule { }

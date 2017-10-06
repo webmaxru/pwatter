@@ -1,58 +1,58 @@
-<md-sidenav-container class="mat-typography">
-  <md-sidenav #sidenav>
+<mat-sidenav-container class="mat-typography">
+  <mat-sidenav #sidenav>
 
-    <md-toolbar color="accent">
+    <mat-toolbar color="accent">
 
       <img src="assets/images/logo.png" class="logo" alt="{{title}}" />
 
-    </md-toolbar>
+    </mat-toolbar>
 
-    <md-nav-list>
-      <md-list-item>
-        <md-icon md-list-icon>folder</md-icon>
-        <a md-line>Dashboard</a>
-      </md-list-item>
-      <md-list-item>
-        <md-icon md-list-icon>folder</md-icon>
-        <a md-line>Logout</a>
-      </md-list-item>
-    </md-nav-list>
+    <mat-nav-list>
+      <mat-list-item>
+        <mat-icon mat-list-icon>folder</mat-icon>
+        <a matLine>Dashboard</a>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon mat-list-icon>folder</mat-icon>
+        <a matLine>Logout</a>
+      </mat-list-item>
+    </mat-nav-list>
 
-  </md-sidenav>
+  </mat-sidenav>
 
-  <md-toolbar color="primary">
+  <mat-toolbar color="primary">
     <span>
-      <button md-icon-button (click)="sidenav.open()">
-            <md-icon>menu</md-icon>
+      <button mat-icon-button (click)="sidenav.open()">
+            <mat-icon>menu</mat-icon>
           </button>
       
           </span>
     <span>{{title}}</span>
 
-  </md-toolbar>
+  </mat-toolbar>
 
   <div class="content">
 
-    <md-tab-group>
-      <md-tab label="Push Notifications">
+    <mat-tab-group>
+      <mat-tab label="Push Notifications">
 
         <app-control-push></app-control-push>
 
-      </md-tab>
-      <md-tab label="Background Sync">
+      </mat-tab>
+      <mat-tab label="Background Sync">
 
         <app-post-tweet></app-post-tweet>
 
-      </md-tab>
-      <md-tab label="Broadcast Channel">
+      </mat-tab>
+      <mat-tab label="Broadcast Channel">
 
         <app-control-broadcast></app-control-broadcast>
 
-      </md-tab>
-    </md-tab-group>
+      </mat-tab>
+    </mat-tab-group>
 
     <app-tweet-feeds></app-tweet-feeds>
 
   </div>
 
-</md-sidenav-container>
+</mat-sidenav-container>

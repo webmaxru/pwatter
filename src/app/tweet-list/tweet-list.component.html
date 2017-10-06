@@ -1,12 +1,12 @@
-<md-nav-list *ngIf="tweets">
-  <a md-list-item *ngFor="let tweet of tweets" href="{{ 'https://twitter.com/statuses/' + tweet.id_str }}">
-    <img md-list-avatar [src]="tweet.user.profile_image_url_https" alt="{{tweet.user.name}}">
-    <h3 md-line>{{tweet.user.name}}</h3>
-    <p md-line>
+<mat-nav-list *ngIf="tweets">
+  <a mat-list-item *ngFor="let tweet of tweets" href="{{ 'https://twitter.com/statuses/' + tweet.id_str }}">
+    <img mat-list-avatar [src]="tweet.user.profile_image_url_https" alt="{{tweet.user.name}}">
+    <h3 matLine>{{tweet.user.name}}</h3>
+    <p matLine>
       <span>{{tweet.text}}</span>
     </p>
-    <p md-line>
-      <small><md-icon>favorite</md-icon> {{tweet.favorite_count || 0}} &nbsp; <md-icon>autorenew</md-icon> {{tweet.retweet_count || 0}}</small>
+    <p matLine>
+      <small><mat-icon>favorite</mat-icon> {{tweet.favorite_count || 0}} &nbsp; <mat-icon>autorenew</mat-icon> {{tweet.retweet_count || 0}}</small>
     </p>
   </a>
-</md-nav-list>
+</mat-nav-list>

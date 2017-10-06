@@ -1,14 +1,14 @@
-<md-card>
-  <md-card-header>
-    <md-icon md-card-avatar>grade</md-icon>
-    <md-card-title>Tweets</md-card-title>
-    <md-card-subtitle>Choose between your timeline or favorites</md-card-subtitle>
-  </md-card-header>
-  <md-card-actions>
-    <button md-button color="accent" (click)="loadTimeLine()"><md-icon>list</md-icon>Load my timeline</button>
-    <button md-button color="accent" (click)="loadFavorites()"><md-icon>favorite</md-icon>Load my favorites</button>
-  </md-card-actions>
-  <md-card-content>
+<mat-card>
+  <mat-card-header>
+    <mat-icon mat-card-avatar>grade</mat-icon>
+    <mat-card-title>Tweets</mat-card-title>
+    <mat-card-subtitle>Choose between your timeline or favorites</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-actions>
+    <button mat-button color="accent" (click)="loadTimeLine()"><mat-icon>list</mat-icon>Load my timeline</button>
+    <button mat-button color="accent" (click)="loadFavorites()"><mat-icon>favorite</mat-icon>Load my favorites</button>
+  </mat-card-actions>
+  <mat-card-content>
 
     <div *ngIf="tweets$ | async; else loading; let tweets">
 
@@ -17,9 +17,9 @@
     </div>
 
     <ng-template #loading>
-      <md-progress-bar mode="indeterminate" *ngIf="isInteractionStarted"></md-progress-bar>
+      <mat-progress-bar mode="indeterminate" *ngIf="isInteractionStarted"></mat-progress-bar>
     </ng-template>
 
-  </md-card-content>
+  </mat-card-content>
 
-</md-card>
+</mat-card>

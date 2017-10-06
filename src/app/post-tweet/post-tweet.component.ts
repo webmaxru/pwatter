@@ -3,7 +3,7 @@ import { Subscription } from 'rxjs/Subscription';
 
 import { Tweet } from '../tweet'
 import { TweetService } from './../tweet.service';
-import { MdSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-post-tweet',
@@ -17,7 +17,7 @@ export class PostTweetComponent implements OnInit {
   subscription: Subscription;
   
 
-  constructor(private tweetService: TweetService, public snackBar: MdSnackBar) { }
+  constructor(private tweetService: TweetService, public snackBar: MatSnackBar) { }
 
   ngOnInit() {
   }

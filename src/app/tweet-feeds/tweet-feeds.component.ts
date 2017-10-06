@@ -1,7 +1,7 @@
 import { Observable } from 'rxjs/Observable';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
-import { MdSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material';
 
 import { Tweet } from '../tweet'
 import { TweetService } from './../tweet.service';
@@ -19,7 +19,7 @@ export class TweetFeedsComponent implements OnInit {
 
   tweets$: Observable<Tweet[]>
 
-  constructor(private tweetService: TweetService, public snackBar: MdSnackBar) { }
+  constructor(private tweetService: TweetService, public snackBar: MatSnackBar) { }
 
   ngOnInit() {
   }

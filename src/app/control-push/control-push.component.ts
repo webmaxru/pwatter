@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MdSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material';
 import { ConfigService } from './../config.service';
 
 import { Observable } from 'rxjs/Observable';
@@ -24,7 +24,7 @@ export class ControlPushComponent implements OnInit {
 
   tweets: Tweet[] = [];
 
-  constructor(private configService: ConfigService, public snackBar: MdSnackBar) {
+  constructor(private configService: ConfigService, public snackBar: MatSnackBar) {
   }
 
   ngOnInit() {

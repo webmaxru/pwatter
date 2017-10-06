@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MdSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material';
 
 import { WindowRef } from './../window-ref';
 
@@ -12,7 +12,7 @@ declare const BroadcastChannel;
 })
 export class ControlBroadcastComponent implements OnInit {
 
-  constructor(public refreshSnackBar: MdSnackBar, private winRef: WindowRef) { }
+  constructor(public refreshSnackBar: MatSnackBar, private winRef: WindowRef) { }
 
   ngOnInit() {
   }

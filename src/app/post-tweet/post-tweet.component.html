@@ -1,24 +1,24 @@
-<md-card>
-  <md-card-header>
-    <md-icon md-card-avatar>sync</md-icon>
-    <md-card-title>Background Sync</md-card-title>
-    <md-card-subtitle>Defer actions until the user has stable connectivity</md-card-subtitle>
-  </md-card-header>
-  <md-card-content>
+<mat-card>
+  <mat-card-header>
+    <mat-icon mat-card-avatar>sync</mat-icon>
+    <mat-card-title>Background Sync</mat-card-title>
+    <mat-card-subtitle>Defer actions until the user has stable connectivity</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
 
     <form #messageForm="ngForm" novalidate (submit)="messageFormSubmit(messageForm)">
 
-      <md-input-container style="width: 300px;">
-        <input mdInput placeholder="Message" value="" type="text" required ngModel #messageRef name="message">
+      <mat-form-field style="width: 300px;">
+        <input matInput placeholder="Message" value="" type="text" required ngModel #messageRef name="message">
         <div *ngIf="messageRef.errors?.required && messageRef.touched" class="error">
           Message is required
         </div>
-      </md-input-container>
+      </mat-form-field>
 
-      <button md-raised-button color="accent" type="submit"><md-icon>message</md-icon>Post!</button>
+      <button mat-raised-button color="accent" type="submit"><mat-icon>message</mat-icon>Post!</button>
       
     </form>
 
-  </md-card-content>
+  </mat-card-content>
 
-</md-card>
+</mat-card>
