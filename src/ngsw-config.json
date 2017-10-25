@@ -24,12 +24,11 @@
       ]
     }
   }, {
-    "name": "external",
-    "installMode": "prefetch",
+    "name": "fonts",
     "resources": {
       "urls": [
-        "https://fonts.googleapis.com/css?family=Material+Icons",
-        "https://fonts.gstatic.com/s/materialicons/v29/2fcrYFNaTjcS6g4U3t-Y5UEw0lE80llgEseQY3FEmqw.woff2"
+        "https://fonts.googleapis.com/**",
+        "https://fonts.gstatic.com/**"
       ]
     }
   }],
