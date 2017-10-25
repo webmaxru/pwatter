@@ -19,9 +19,10 @@ import { ControlBroadcastComponent } from './control-broadcast/control-broadcast
 
 import { TweetService } from './tweet.service';
 
-import {WindowRef} from './window-ref';
+import { WindowRef } from './window-ref';
 
-import {ServiceWorkerModule} from '@angular/service-worker'
+import { ServiceWorkerModule } from '@angular/service-worker'
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -39,7 +40,7 @@ import {ServiceWorkerModule} from '@angular/service-worker'
     HttpModule,
     FormsModule,
     MaterialModule,
-    ServiceWorkerModule.register('/ngsw-worker.js')
+    environment.production ? ServiceWorkerModule.register('/ngsw-worker.js') : []
   ],
   providers: [
     ConfigService,

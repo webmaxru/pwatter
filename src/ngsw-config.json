@@ -1,20 +1,32 @@
 {
   "index": "/index.html",
-  "appData": {
-    "test": true
-  },
   "assetGroups": [{
-    "name": "appshell",
+    "name": "app",
+    "installMode": "prefetch",
     "resources": {
       "files": [
-        "/assets/**/*",
-        "!/ngsw-worker.js"
+        "/favicon.ico",
+        "/index.html"
       ],
       "versionedFiles": [
-        "/**/*.html",
-        "/**/*.js",
-        "/**/*.css"
-      ],
+        "/*.bundle.css",
+        "/*.bundle.js",
+        "/*.chunk.js"
+      ]
+    }
+  }, {
+    "name": "assets",
+    "installMode": "lazy",
+    "updateMode": "prefetch",
+    "resources": {
+      "files": [
+        "/assets/**"
+      ]
+    }
+  }, {
+    "name": "external",
+    "installMode": "prefetch",
+    "resources": {
       "urls": [
         "https://fonts.googleapis.com/css?family=Material+Icons",
         "https://fonts.gstatic.com/s/materialicons/v29/2fcrYFNaTjcS6g4U3t-Y5UEw0lE80llgEseQY3FEmqw.woff2"
@@ -22,27 +34,28 @@
     }
   }],
   "dataGroups": [{
-    "name": "api-freshness",
-    "urls": [
-      "/timeline"
-    ],
-    "cacheConfig": {
-      "maxSize": 100,
-      "maxAge": "3d",
-      "timeout": "1m",
-      "strategy": "freshness"
+      "name": "api-freshness",
+      "urls": [
+        "/timeline"
+      ],
+      "cacheConfig": {
+        "maxSize": 100,
+        "maxAge": "3d",
+        "timeout": "1m",
+        "strategy": "freshness"
+      }
+    },
+    {
+      "name": "api-performance",
+      "urls": [
+        "/favorites"
+      ],
+      "cacheConfig": {
+        "maxSize": 100,
+        "maxAge": "3d",
+        "timeout": "1m",
+        "strategy": "performance"
+      }
     }
-  },
-  {
-    "name": "api-performance",
-    "urls": [
-      "/favorites"
-    ],
-    "cacheConfig": {
-      "maxSize": 100,
-      "maxAge": "3d",
-      "timeout": "1m",
-      "strategy": "performance"
-    }
-  }]
+  ]
 }
