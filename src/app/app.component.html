@@ -23,10 +23,10 @@
   <mat-toolbar color="primary">
     <span>
       <button mat-icon-button (click)="sidenav.open()">
-            <mat-icon>menu</mat-icon>
-          </button>
-      
-          </span>
+        <mat-icon>menu</mat-icon>
+      </button>
+
+    </span>
     <span>{{title}}</span>
 
   </mat-toolbar>
@@ -34,6 +34,11 @@
   <div class="content">
 
     <mat-tab-group>
+      <mat-tab label="NGSW">
+
+        <app-control-ngsw></app-control-ngsw>
+
+      </mat-tab>
       <mat-tab label="Push Notifications">
 
         <app-control-push></app-control-push>

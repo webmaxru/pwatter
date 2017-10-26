@@ -24,6 +24,9 @@ import { WindowRef } from './window-ref';
 import { ServiceWorkerModule } from '@angular/service-worker'
 import { environment } from '../environments/environment';
 
+import { SwUpdatesModule } from './sw-updates/sw-updates.module';
+import { ControlNgswComponent } from './control-ngsw/control-ngsw.component';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +35,8 @@ import { environment } from '../environments/environment';
     PostTweetComponent,
     ControlPushComponent,
     TweetFeedsComponent,
-    ControlBroadcastComponent
+    ControlBroadcastComponent,
+    ControlNgswComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +44,8 @@ import { environment } from '../environments/environment';
     HttpModule,
     FormsModule,
     MaterialModule,
-    environment.production ? ServiceWorkerModule.register('/ngsw-worker.js') : []
+    environment.production ? ServiceWorkerModule.register('/ngsw-worker.js') : [],
+    SwUpdatesModule
   ],
   providers: [
     ConfigService,
