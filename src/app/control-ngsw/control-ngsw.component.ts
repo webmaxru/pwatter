@@ -3,7 +3,9 @@ import { SwUpdate } from '@angular/service-worker';
 import { SwPush } from '@angular/service-worker';
 import { WindowRef } from './../window-ref';
 import { MatSnackBar } from '@angular/material';
-import { SwUpdatesService } from '../sw-updates/sw-updates.service';
+
+import { ConfigService } from './../config.service';
+import { PushService } from './../push.service';
 
 @Component({
   selector: 'app-control-ngsw',
@@ -12,38 +14,32 @@ import { SwUpdatesService } from '../sw-updates/sw-updates.service';
 })
 export class ControlNgswComponent implements OnInit {
 
-  private vapidPublicKey = 'BHe82datFpiOOT0k3D4pieGt1GU-xx8brPjBj0b22gvmwl-HLD1vBOP1AxlDKtwYUQiS9S-SDVGYe_TdZrYJLw8';
+  private snackBarDuration: number = 2000;
+  private VAPID_PUBLIC_KEY: string;
 
-  constructor(public refreshSnackBar: MatSnackBar, private swUpdate: SwUpdate, private swPush: SwPush, private winRef: WindowRef, private swUpdates: SwUpdatesService) {
-
-    console.log('[NGSW] ControlNgswComponent instantiated')
+  constructor(private pushService: PushService, public snackBar: MatSnackBar, private configService: ConfigService, private swUpdate: SwUpdate, private swPush: SwPush, private winRef: WindowRef) {
 
     swUpdate.available.subscribe(event => {
 
-      console.log('current version is', event.current);
-      console.log('available version is', event.available);
+      console.log('[NGSW] Update available: current version is', event.current, 'available version is', event.available);
+      let snackBarRef = this.snackBar.open('Newer version of the app is available', 'Refresh');
 
-      let refreshSnackBarRef = this.refreshSnackBar.open('Newer version of the app is available', 'Refresh');
-
-      refreshSnackBarRef.onAction().subscribe(() => {
+      snackBarRef.onAction().subscribe(() => {
         this.activateUpdate()
       });
 
     });
-    
+
     swUpdate.activated.subscribe(event => {
-      console.log('old version was', event.previous);
-      console.log('new version is', event.current);
-    });
-
-    swUpdates.updateActivated.subscribe(() => {
-      console.log('[NGSW] updateActivated.subscribe')
-
+      console.log('[NGSW] Update activated: old version was', event.previous, 'new version is', event.current);
     });
 
   }
 
   ngOnInit() {
+
+    this.VAPID_PUBLIC_KEY = this.configService.get('VAPID_PUBLIC_KEY')
+
   }
 
   checkForUpdate() {
@@ -72,18 +68,81 @@ export class ControlNgswComponent implements OnInit {
   subscribeToPush() {
 
     this.swPush.requestSubscription({
-      serverPublicKey: this.vapidPublicKey
+      serverPublicKey: this.VAPID_PUBLIC_KEY
     })
-      .then(subscription => {
+      .then(pushSubscription => {
 
-        console.log(subscription)
+        this.pushService.addSubscriber(pushSubscription)
+          .subscribe(
 
+          res => {
+            console.log('[App] Add subscriber request answer', res)
+
+            let snackBarRef = this.snackBar.open('Now you are subscribed', null, {
+              duration: this.snackBarDuration
+            });
+          },
+          err => {
+            console.log('[App] Add subscriber request failed', err)
+          }
+
+          )
       })
       .catch(err => {
         console.error(err);
       })
 
   }
+
+  unsubscribeFromPush() {
+
+    // Get active subscription
+    this.swPush.subscription
+      .subscribe(pushSubscription => {
+
+        console.log('[App] pushSubscription', pushSubscription)
+        
+        // Delete the subscription on the backend
+        this.pushService.deleteSubscriber(pushSubscription)
+          .subscribe(
+
+          res => {
+            console.log('[App] Delete subscriber request answer', res)
+
+            // Unsubscribe current client (browser)
+            this.swPush.unsubscribe() // or just pushSubscription.unsubscribe()
+              .then(success => {
+                console.log('[App] Unsubscription successful', success)
+
+                let snackBarRef = this.snackBar.open('Now you are unsubscribed', null, {
+                  duration: this.snackBarDuration
+                });
+              })
+              .catch(err => {
+                console.log('[App] Unsubscription failed', err)
+              })
+
+          },
+          err => {
+            console.log('[App] Delete subscription request failed', err)
+          }
+
+          )
+
+      })
+
+  }
+
+  showMessages() {
+
+    this.swPush.messages
+      .subscribe(message => {
+
+        console.log(message)
+
+      })
+  }
+
 
   openLog() {
 

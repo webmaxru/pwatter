@@ -15,7 +15,7 @@ export class PostTweetComponent implements OnInit {
   message;
   private snackBarDuration: number = 2000;
   subscription: Subscription;
-  
+
 
   constructor(private tweetService: TweetService, public snackBar: MatSnackBar) { }
 
@@ -26,7 +26,8 @@ export class PostTweetComponent implements OnInit {
 
     if (messageForm.valid) {
 
-      this.subscription = this.tweetService.postTweet(messageForm.value.message).subscribe(
+      this.subscription = this.tweetService.postTweet(messageForm.value.message)
+        .subscribe(
         res => {
           console.log('[App] Tweet was posted', res)
           let snackBarRef = this.snackBar.open('Tweet was posted', null, {
