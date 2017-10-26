@@ -30,6 +30,7 @@ export class ControlNgswComponent implements OnInit {
       });
 
     });
+    
     swUpdate.activated.subscribe(event => {
       console.log('old version was', event.previous);
       console.log('new version is', event.current);
@@ -51,14 +52,21 @@ export class ControlNgswComponent implements OnInit {
       .then(() => {
         console.log('[NGSW] checkForUpdate completed')
       })
+      .catch(err => {
+        console.error(err);
+      })
   }
 
   activateUpdate() {
     console.log('[NGSW] activateUpdate started')
-    this.swUpdate.activateUpdate().then(() => {
-      console.log('[NGSW] activateUpdate completed')
-      this.winRef.nativeWindow.location.reload()
-    })
+    this.swUpdate.activateUpdate()
+      .then(() => {
+        console.log('[NGSW] activateUpdate completed')
+        this.winRef.nativeWindow.location.reload()
+      })
+      .catch(err => {
+        console.error(err);
+      })
   }
 
   subscribeToPush() {
@@ -72,7 +80,7 @@ export class ControlNgswComponent implements OnInit {
 
       })
       .catch(err => {
-        console.log(err);
+        console.error(err);
       })
 
   }
