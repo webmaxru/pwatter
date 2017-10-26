@@ -1,6 +1,6 @@
 <mat-nav-list *ngIf="tweets">
   <a mat-list-item *ngFor="let tweet of tweets" href="{{ 'https://twitter.com/statuses/' + tweet.id_str }}">
-    <img mat-list-avatar [src]="tweet.user.profile_image_url_https" alt="{{tweet.user.name}}">
+    <img mat-list-avatar src="https://pwa-workshop-api.herokuapp.com/assets/images/logo.png" alt="{{tweet.user.name}}">
     <h3 matLine>{{tweet.user.name}}</h3>
     <p matLine>
       <span>{{tweet.text}}</span>
