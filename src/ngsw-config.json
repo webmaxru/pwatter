@@ -1,5 +1,9 @@
 {
   "index": "/index.html",
+  "appData": {
+    "name": "PWAtter v5",
+    "description": "Push bug fixed"
+  },
   "assetGroups": [{
     "name": "app",
     "installMode": "prefetch",
@@ -52,9 +56,22 @@
       "cacheConfig": {
         "maxSize": 100,
         "maxAge": "3d",
-        "timeout": "1m",
+        "timeout": "10s",
+        "strategy": "performance"
+      }
+    },
+    {
+      "name": "avatars",
+      "urls": [
+        "https://pbs.twimg.com/profile_images/**"
+      ],
+      "cacheConfig": {
+        "maxSize": 50,
+        "maxAge": "365d",
+        "timeout": "30s",
         "strategy": "performance"
       }
     }
+
   ]
 }
