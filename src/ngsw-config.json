@@ -1,8 +1,8 @@
 {
   "index": "/index.html",
   "appData": {
-    "name": "PWAtter ngsw-step5",
-    "description": "Implemented push flow"
+    "name": "PWAtter ngsw-step3",
+    "description": "Web App Manifest"
   },
   "assetGroups": [{
     "name": "app",
