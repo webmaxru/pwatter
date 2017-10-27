@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { SwUpdate } from '@angular/service-worker';
 import { SwPush } from '@angular/service-worker';
 import { WindowRef } from './../window-ref';
 import { MatSnackBar } from '@angular/material';
@@ -18,22 +17,7 @@ export class ControlNgswComponent implements OnInit {
   private snackBarDuration: number = 2000;
   private VAPID_PUBLIC_KEY: string;
 
-  constructor(private pushService: PushService, public snackBar: MatSnackBar, private configService: ConfigService, private swUpdate: SwUpdate, private swPush: SwPush, private winRef: WindowRef) {
-
-    swUpdate.available.subscribe(event => {
-
-      console.log('[NGSW] Update available: current version is', event.current, 'available version is', event.available);
-      let snackBarRef = this.snackBar.open('Newer version of the app is available', 'Refresh');
-
-      snackBarRef.onAction().subscribe(() => {
-        this.activateUpdate()
-      });
-
-    });
-
-    swUpdate.activated.subscribe(event => {
-      console.log('[NGSW] Update activated: old version was', event.previous, 'new version is', event.current);
-    });
+  constructor(private pushService: PushService, public snackBar: MatSnackBar, private configService: ConfigService, private swPush: SwPush, private winRef: WindowRef) {
 
   }
 
@@ -41,31 +25,14 @@ export class ControlNgswComponent implements OnInit {
 
     this.VAPID_PUBLIC_KEY = this.configService.get('VAPID_PUBLIC_KEY')
 
-    this.checkForUpdate()
-
   }
 
   checkForUpdate() {
-    console.log('[NGSW] checkForUpdate started')
-    this.swUpdate.checkForUpdate()
-      .then(() => {
-        console.log('[NGSW] checkForUpdate completed')
-      })
-      .catch(err => {
-        console.error(err);
-      })
+
   }
 
   activateUpdate() {
-    console.log('[NGSW] activateUpdate started')
-    this.swUpdate.activateUpdate()
-      .then(() => {
-        console.log('[NGSW] activateUpdate completed')
-        this.winRef.nativeWindow.location.reload()
-      })
-      .catch(err => {
-        console.error(err);
-      })
+
   }
 
   subscribeToPush() {
@@ -150,8 +117,6 @@ export class ControlNgswComponent implements OnInit {
 
 
   openLog() {
-
-    this.winRef.nativeWindow.open('/ngsw/state')
 
   }
 
