@@ -39,7 +39,7 @@ The output should be at least `1.4.9`
 ```bash
 ng serve
 ```
-2. Open [http://localhost:4200/](http://localhost:4200/). You should see the page with `PWAatter` header.
+2. Open [http://localhost:4200/](http://localhost:4200/). You should see the page with `PWAtter` header.
 3. "Ctrl-C" to stop the app.
 
 ## Creating a production build and serving it via external web server
@@ -51,6 +51,6 @@ The `dist` folder should be created.
 - If you use `http-server`: Run `http-server dist -p 8080` and open `http://127.0.0.1:8080` in your browser.
 - If you use `Web Server for Chrome`: Start `Web Server for Chrome` extension and point to this folder using "Choose folder" button OR. Open the link you see in "Web Server URL(s)" section (make sure the "Automatically show index.html" option is on).
 
-You should see the page with `PWAatter` header.
+You should see the page with `PWAtter` header.
 
 ## We are ready to start the workshop! Follow the trainer instructions.
