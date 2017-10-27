@@ -22,9 +22,6 @@ import { ControlBroadcastComponent } from './control-broadcast/control-broadcast
 
 import { WindowRef } from './window-ref';
 
-import { ServiceWorkerModule } from '@angular/service-worker'
-import { environment } from '../environments/environment';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,8 +37,7 @@ import { environment } from '../environments/environment';
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
-    MaterialModule,
-    environment.production ? ServiceWorkerModule.register('/ngsw-worker.js') : []
+    MaterialModule
   ],
   providers: [
     ConfigService,
