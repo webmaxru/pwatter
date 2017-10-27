@@ -1,8 +1,8 @@
 {
   "index": "/index.html",
   "appData": {
-    "name": "PWAtter ngsw-update",
-    "description": "Implemented update flow"
+    "name": "PWAtter NGSW",
+    "description": "Fully-featured Angular Service Worker app"
   },
   "assetGroups": [{
     "name": "app",
