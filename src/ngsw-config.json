@@ -2,7 +2,7 @@
   "index": "/index.html",
   "appData": {
     "name": "PWAtter ngsw-step3",
-    "description": "Web App Manifest"
+    "description": "Implemented runtime caching"
   },
   "assetGroups": [{
     "name": "app",
