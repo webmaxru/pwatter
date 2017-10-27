@@ -1,8 +1,8 @@
 {
   "index": "/index.html",
   "appData": {
-    "name": "PWAtter ngsw-step3",
-    "description": "Implemented runtime caching"
+    "name": "PWAtter ngsw-step2",
+    "description": "Implemented external resources caching"
   },
   "assetGroups": [{
     "name": "app",
@@ -35,31 +35,5 @@
         "https://fonts.gstatic.com/**"
       ]
     }
-  }],
-  "dataGroups": [{
-      "name": "api-freshness",
-      "urls": [
-        "/timeline"
-      ],
-      "cacheConfig": {
-        "maxSize": 100,
-        "maxAge": "3d",
-        "timeout": "1m",
-        "strategy": "freshness"
-      }
-    },
-    {
-      "name": "api-performance",
-      "urls": [
-        "/favorites"
-      ],
-      "cacheConfig": {
-        "maxSize": 100,
-        "maxAge": "3d",
-        "timeout": "10s",
-        "strategy": "performance"
-      }
-    }
-
-  ]
+  }]
 }
