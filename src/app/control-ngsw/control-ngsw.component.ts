@@ -3,6 +3,7 @@ import { SwUpdate } from '@angular/service-worker';
 import { SwPush } from '@angular/service-worker';
 import { WindowRef } from './../window-ref';
 import { MatSnackBar } from '@angular/material';
+import 'rxjs/add/operator/take';
 
 import { ConfigService } from './../config.service';
 import { PushService } from './../push.service';
@@ -39,6 +40,8 @@ export class ControlNgswComponent implements OnInit {
   ngOnInit() {
 
     this.VAPID_PUBLIC_KEY = this.configService.get('VAPID_PUBLIC_KEY')
+
+    this.checkForUpdate()
 
   }
 
@@ -98,10 +101,12 @@ export class ControlNgswComponent implements OnInit {
 
     // Get active subscription
     this.swPush.subscription
+      .take(1)
       .subscribe(pushSubscription => {
 
         console.log('[App] pushSubscription', pushSubscription)
-        
+
+
         // Delete the subscription on the backend
         this.pushService.deleteSubscriber(pushSubscription)
           .subscribe(
@@ -109,14 +114,14 @@ export class ControlNgswComponent implements OnInit {
           res => {
             console.log('[App] Delete subscriber request answer', res)
 
+            let snackBarRef = this.snackBar.open('Now you are unsubscribed', null, {
+              duration: this.snackBarDuration
+            });
+
             // Unsubscribe current client (browser)
-            this.swPush.unsubscribe() // or just pushSubscription.unsubscribe()
+            pushSubscription.unsubscribe()
               .then(success => {
                 console.log('[App] Unsubscription successful', success)
-
-                let snackBarRef = this.snackBar.open('Now you are unsubscribed', null, {
-                  duration: this.snackBarDuration
-                });
               })
               .catch(err => {
                 console.log('[App] Unsubscription failed', err)

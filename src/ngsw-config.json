@@ -1,8 +1,8 @@
 {
   "index": "/index.html",
   "appData": {
-    "name": "PWAtter v5",
-    "description": "Push bug fixed"
+    "name": "PWAtter ngsw-update",
+    "description": "Implemented update flow"
   },
   "assetGroups": [{
     "name": "app",
@@ -58,18 +58,6 @@
         "maxAge": "3d",
         "timeout": "10s",
         "strategy": "performance"
-      }
-    },
-    {
-      "name": "avatars",
-      "urls": [
-        "https://pbs.twimg.com/profile_images/**"
-      ],
-      "cacheConfig": {
-        "maxSize": 50,
-        "maxAge": "365d",
-        "timeout": "30s",
-        "strategy": "freshness"
       }
     }
 

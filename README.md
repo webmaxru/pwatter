@@ -1,45 +1,56 @@
-# Progressive Web App with Angular 5 beta 5 + [Workbox 2.0](https://www.workboxjs.org/)
+# A simple app for the PWA Workshop
 
-Read [Using Workbox 2 and Angular 5 to create a Progressive Web App. Part 1: App shell](https://medium.com/@webmaxru/using-workbox-2-and-angular-5-to-create-a-progressive-web-app-part-1-app-shell-b14f9872384a) article for the details.
+## Prerequisites
+1. Latest stable versions of `node`, `npm` installed.
+2. Having `yarn` installed is strongly recommended.
+3. Any simple web server od browser extension. Recommended:
+- [http-server](https://www.npmjs.com/package/http-server
+). This is preferred option.
+- [Web Server for Chrome](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb/). Use this as a fallback option.
 
-<img src="https://raw.githubusercontent.com/webmaxru/pwatter/master/src/assets/images/logo.png" width="200" height="200">
 
-[DEMO](https://pwa-workshop-angular.firebaseapp.com/)
-
-[Backend used for the demo](https://github.com/webmaxru/pwa-workshop-api/)
-
-Questions? [@webmaxru](https://twitter.com/webmaxru/)
-
-To get started, install Angular CLI from [npm](https://www.npmjs.com/).
-
+## Install
+1. Clone the repo
+2. 
+```bash
+yarn
 ```
-$ npm install -g @angular/cli
-```
-
-Then install dependencies and types:
-
-```
-$ npm install
+or
+```bash
+npm install
 ```
 
-Then build the app:
-
+## Install/update Angular CLI
+```bash
+npm uninstall -g angular-cli
+npm uninstall -g @angular/cli
+npm cache clean
+npm install -g @angular/cli@latest
 ```
-$ npm run build-full-workbox
+
+Check the version:
+```bash
+npm list @angular/cli version -g
 ```
+The output should be at least `1.4.9`
 
-And serve the `dist` folder using any static webserver.
+## Checking the app
+1. In the terminal
+```bash
+ng serve
+```
+2. Open [http://localhost:4200/](http://localhost:4200/). You should see the page with `PWAatter` header.
+3. "Ctrl-C" to stop the app.
 
-## Some of features
+## Creating a production build and serving it via external web server
+```bash
+ng build --prod
+```
+The `dist` folder should be created.
 
-### Push notifications
+- If you use `http-server`: Run `http-server dist -p 8080` and open `http://127.0.0.1:8080` in your browser.
+- If you use `Web Server for Chrome`: Start `Web Server for Chrome` extension and point to this folder using "Choose folder" button OR. Open the link you see in "Web Server URL(s)" section (make sure the "Automatically show index.html" option is on).
 
-![Push notifications](https://raw.githubusercontent.com/webmaxru/pwatter/master/src/assets/images/push.gif "Push notifications")
+You should see the page with `PWAatter` header.
 
-### Replay offline requests
-
-![Background sync](https://raw.githubusercontent.com/webmaxru/pwatter/master/src/assets/images/sync.gif "Background sync")
-
-### Subscribe to updates
-
-![Broadcast channel](https://raw.githubusercontent.com/webmaxru/pwatter/master/src/assets/images/broadcast.gif "Broadcast channel")
+## We are ready to start the workshop! Follow the trainer instructions.
