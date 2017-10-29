@@ -6,8 +6,14 @@
     </p>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button (click)="subscribeToPush()"><mat-icon>notifications_active</mat-icon>Subscribe</button>
-    <button mat-raised-button (click)="unsubscribeFromPush()"><mat-icon>notifications_off</mat-icon>Unsubscribe</button>
+    <button mat-raised-button (click)="subscribeToPush()">
+      <mat-icon>notifications_active</mat-icon>Subscribe for push</button>
+    <button mat-raised-button (click)="unsubscribeFromPush()">
+      <mat-icon>notifications_off</mat-icon>Unsubscribe</button>
+    <button mat-raised-button (click)="showMessages()">
+      <mat-icon>list</mat-icon>Subscribe for messages</button>
   </mat-card-actions>
 
 </mat-card>
+
+<app-tweet-list [tweets]="tweets"></app-tweet-list>

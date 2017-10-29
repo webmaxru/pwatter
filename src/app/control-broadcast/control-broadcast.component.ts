@@ -3,7 +3,7 @@ import { MatSnackBar } from '@angular/material';
 
 import { WindowRef } from './../window-ref';
 
-declare const BroadcastChannel;
+import { SwUpdate } from '@angular/service-worker';
 
 @Component({
   selector: 'app-control-broadcast',
@@ -12,27 +12,50 @@ declare const BroadcastChannel;
 })
 export class ControlBroadcastComponent implements OnInit {
 
-  constructor(public refreshSnackBar: MatSnackBar, private winRef: WindowRef) { }
+  constructor(private swUpdate: SwUpdate, public snackBar: MatSnackBar, private winRef: WindowRef) { }
 
   ngOnInit() {
-  }
 
-  subscribeToUpdates() {
+    this.swUpdate.available.subscribe(event => {
 
-    const updateChannel = new BroadcastChannel('pwatter-channel');
+      console.log('[App] Update available: current version is', event.current, 'available version is', event.available);
+      let snackBarRef = this.snackBar.open('Newer version of the app is available', 'Refresh');
 
-    updateChannel.addEventListener('message', event => {
-
-      console.log('[App] Cache updated', event.data.payload.updatedUrl);
-
-      let refreshSnackBarRef = this.refreshSnackBar.open('Newer version of the app is available', 'Refresh');
-
-      refreshSnackBarRef.onAction().subscribe(() => {
-        this.winRef.nativeWindow.location.reload()
+      snackBarRef.onAction().subscribe(() => {
+        this.activateUpdate()
       });
 
     });
 
+    this.swUpdate.activated.subscribe(event => {
+      console.log('[App] Update activated: old version was', event.previous, 'new version is', event.current);
+    });
+
+    this.checkForUpdate()
+
+  }
+
+  checkForUpdate() {
+    console.log('[App] checkForUpdate started')
+    this.swUpdate.checkForUpdate()
+      .then(() => {
+        console.log('[App] checkForUpdate completed')
+      })
+      .catch(err => {
+        console.error(err);
+      })
+  }
+
+  activateUpdate() {
+    console.log('[App] activateUpdate started')
+    this.swUpdate.activateUpdate()
+      .then(() => {
+        console.log('[App] activateUpdate completed')
+        this.winRef.nativeWindow.location.reload()
+      })
+      .catch(err => {
+        console.error(err);
+      })
   }
 
 

@@ -16,7 +16,6 @@ import { ControlNgswComponent } from './control-ngsw/control-ngsw.component';
 import { TweetListComponent } from './tweet-list/tweet-list.component';
 import { TweetFeedsComponent } from './tweet-feeds/tweet-feeds.component';
 
-import { PostTweetComponent } from './post-tweet/post-tweet.component';
 import { ControlPushComponent } from './control-push/control-push.component';
 import { ControlBroadcastComponent } from './control-broadcast/control-broadcast.component';
 
@@ -29,7 +28,6 @@ import { environment } from '../environments/environment';
   declarations: [
     AppComponent,
     TweetListComponent,
-    PostTweetComponent,
     ControlPushComponent,
     TweetFeedsComponent,
     ControlBroadcastComponent,

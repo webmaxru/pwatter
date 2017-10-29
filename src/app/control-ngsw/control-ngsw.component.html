@@ -1,24 +1,10 @@
 <mat-card>
 
   <mat-card-actions>
-    <button mat-raised-button (click)="checkForUpdate()">
-      <mat-icon>check</mat-icon>Check for update</button>
-    <button mat-raised-button (click)="activateUpdate()">
-      <mat-icon>refresh</mat-icon>Activate update</button>
-  </mat-card-actions>
-
-  <mat-card-actions>
-    <button mat-raised-button (click)="subscribeToPush()">
-      <mat-icon>notifications_active</mat-icon>Subscribe for push</button>
-    <button mat-raised-button (click)="unsubscribeFromPush()">
-      <mat-icon>notifications_off</mat-icon>Unsubscribe</button>
-    <button mat-raised-button (click)="showMessages()">
-      <mat-icon>list</mat-icon>Show messages</button>
-  </mat-card-actions>
-
-  <mat-card-actions>
     <button mat-raised-button (click)="openLog()">
       <mat-icon>list</mat-icon>Open log</button>
   </mat-card-actions>
 
 </mat-card>
+
+<app-tweet-feeds></app-tweet-feeds>
