@@ -38,17 +38,17 @@
   dependencies:
     tslib "^1.7.1"
 
-"@angular/cli@^1.5.0-rc.3":
-  version "1.5.0-rc.4"
-  resolved "https://registry.yarnpkg.com/@angular/cli/-/cli-1.5.0-rc.4.tgz#46f6e30d8e06ad6eb7ff9ad42c6f1b8cde9a4495"
+"@angular/cli@^1.5.0-rc.6":
+  version "1.5.0-rc.6"
+  resolved "https://registry.yarnpkg.com/@angular/cli/-/cli-1.5.0-rc.6.tgz#e8b28404830645c0fa34202365fb90cffdfd1a09"
   dependencies:
     "@angular-devkit/build-optimizer" "~0.0.31"
     "@angular-devkit/schematics" "~0.0.34"
     "@ngtools/json-schema" "1.1.0"
-    "@ngtools/webpack" "1.8.0-rc.4"
+    "@ngtools/webpack" "1.8.0-rc.6"
     "@schematics/angular" "~0.0.48"
     autoprefixer "^6.5.3"
-    chalk "^2.0.1"
+    chalk "~2.2.0"
     circular-dependency-plugin "^3.0.0"
     common-tags "^1.3.1"
     copy-webpack-plugin "^4.1.1"
@@ -178,11 +178,11 @@
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@ngtools/json-schema/-/json-schema-1.1.0.tgz#c3a0c544d62392acc2813a42c8a0dc6f58f86922"
 
-"@ngtools/webpack@1.8.0-rc.4":
-  version "1.8.0-rc.4"
-  resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-1.8.0-rc.4.tgz#1f37a35a97e51e73cd92b81ac240e3fa2ff77d18"
+"@ngtools/webpack@1.8.0-rc.6":
+  version "1.8.0-rc.6"
+  resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-1.8.0-rc.6.tgz#1a6772ad804f870222a37ba8e55b491659f4212b"
   dependencies:
-    chalk "^2.0.1"
+    chalk "~2.2.0"
     enhanced-resolve "^3.1.0"
     loader-utils "^1.0.2"
     magic-string "^0.22.3"
@@ -888,9 +888,17 @@ chalk@^1.1.1, chalk@^1.1.3:
     strip-ansi "^3.0.0"
     supports-color "^2.0.0"
 
-chalk@^2.0.0, chalk@^2.0.1, chalk@^2.1.0:
+chalk@^2.0.0, chalk@^2.1.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-2.3.0.tgz#b5ea48efc9c1793dccc9b4767c93914d3f2d52ba"
+  dependencies:
+    ansi-styles "^3.1.0"
+    escape-string-regexp "^1.0.5"
+    supports-color "^4.0.0"
+
+chalk@~2.2.0:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/chalk/-/chalk-2.2.2.tgz#4403f5cf18f35c05f51fbdf152bf588f956cf7cb"
   dependencies:
     ansi-styles "^3.1.0"
     escape-string-regexp "^1.0.5"
