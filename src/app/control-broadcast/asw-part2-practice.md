@@ -1,9 +1,0 @@
-There is some time left since the first part of this article was published, and this pause was taken intentionally — the functionality was ready to practical usage only after a few more Release Candidates after the initial appearance. Now we are counting days (or hours!) before the Angular 5 release, and Angular Service Worker which is RC.9 (like all other core components) is ready for being explored.
-
-We are going to use our PWAtter - the tiny Twitter client - again. The source code is available on GitHub. Since this is a practical approach, let's define some requirements for our PWA:
-
-- Immediate start both in offline and online modes: we need an application shell to achieve this.
-- We have some external files (webfont with material isons) as a part of the application shell. By "external" we mean that these resources are not the part of our dist folder.
-- Optimized networking for API calls: we could serve some earlier accessed data during offline, as well as we could speed up online mode by serving this cached data instead of the network roundtrip.
-- Push notifications flow: both subscription and displaying a notification. For the subscription: client-side app must provide the functionality to initiate the subscription flow and pass subscription object to the backend (we always store our subscriptions at the backend). Plus, our backend will generate a push message each time someone tweet about "javacript", so Angular Service Worker should get this event and display a message. Some extras: first, let's give the possibility to our user to unsubscribe from the web push notifications. Second, let's demo, that we can propagate the notifications to the client-side app, in addition to showing them as notification popups.
-- The application shell should have the regular for PWAs "stale-while-revalidate" update flow: if possible, we always serve the "current" cached version (to show it "immediately"). At the same time, service

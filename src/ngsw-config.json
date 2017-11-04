@@ -42,10 +42,10 @@
         "/timeline"
       ],
       "cacheConfig": {
+        "strategy": "freshness",
         "maxSize": 100,
         "maxAge": "3d",
-        "timeout": "1m",
-        "strategy": "freshness"
+        "timeout": "10s"
       }
     },
     {
@@ -54,12 +54,10 @@
         "/favorites"
       ],
       "cacheConfig": {
+        "strategy": "performance",
         "maxSize": 100,
-        "maxAge": "3d",
-        "timeout": "10s",
-        "strategy": "performance"
+        "maxAge": "3d"
       }
     }
-
   ]
 }
