@@ -22,7 +22,7 @@ export class ControlBroadcastComponent implements OnInit {
       let snackBarRef = this.snackBar.open('Newer version of the app is available', 'Refresh');
 
       snackBarRef.onAction().subscribe(() => {
-        this.activateUpdate()
+        this.winRef.nativeWindow.location.reload()
       });
 
     });
@@ -30,8 +30,6 @@ export class ControlBroadcastComponent implements OnInit {
     this.swUpdate.activated.subscribe(event => {
       console.log('[App] Update activated: old version was', event.previous, 'new version is', event.current);
     });
-
-    this.checkForUpdate()
 
   }
 

@@ -30,10 +30,14 @@ export class ControlPushComponent implements OnInit {
 
   subscribeToPush() {
 
+    // Requesting messaging service to subscribe current client (browser)
+
     this.swPush.requestSubscription({
       serverPublicKey: this.VAPID_PUBLIC_KEY
     })
       .then(pushSubscription => {
+
+        // Passing subscription object to our backend
 
         this.pushService.addSubscriber(pushSubscription)
           .subscribe(
@@ -60,14 +64,15 @@ export class ControlPushComponent implements OnInit {
   unsubscribeFromPush() {
 
     // Get active subscription
+
     this.swPush.subscription
       .take(1)
       .subscribe(pushSubscription => {
 
         console.log('[App] pushSubscription', pushSubscription)
 
+        // Delete the subscription from the backend
 
-        // Delete the subscription on the backend
         this.pushService.deleteSubscriber(pushSubscription)
           .subscribe(
 
@@ -79,6 +84,7 @@ export class ControlPushComponent implements OnInit {
             });
 
             // Unsubscribe current client (browser)
+
             pushSubscription.unsubscribe()
               .then(success => {
                 console.log('[App] Unsubscription successful', success)
