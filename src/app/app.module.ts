@@ -12,17 +12,14 @@ import { ConfigService } from './config.service';
 import { PushService } from './push.service';
 import { TweetService } from './tweet.service';
 
-import { ControlNgswComponent } from './control-ngsw/control-ngsw.component';
 import { TweetListComponent } from './tweet-list/tweet-list.component';
 import { TweetFeedsComponent } from './tweet-feeds/tweet-feeds.component';
 
+import { PostTweetComponent } from './post-tweet/post-tweet.component';
 import { ControlPushComponent } from './control-push/control-push.component';
 import { ControlBroadcastComponent } from './control-broadcast/control-broadcast.component';
 
 import { WindowRef } from './window-ref';
-
-import { ServiceWorkerModule } from '@angular/service-worker'
-import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -31,15 +28,14 @@ import { environment } from '../environments/environment';
     ControlPushComponent,
     TweetFeedsComponent,
     ControlBroadcastComponent,
-    ControlNgswComponent
+    PostTweetComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
-    MaterialModule,
-    environment.production ? ServiceWorkerModule.register('/ngsw-worker.js') : []
+    MaterialModule
   ],
   providers: [
     ConfigService,

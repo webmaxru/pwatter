@@ -32,7 +32,7 @@ Check the version:
 ```bash
 npm list @angular/cli version -g
 ```
-The output should be at least `1.4.9`
+The output should be at least `1.7.3`
 
 ## Checking the app
 1. In the terminal
