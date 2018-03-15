@@ -1,4 +1,4 @@
-//importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.0.0/workbox-sw.js')
+// importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.0.0/workbox-sw.js')
 
 importScripts('workbox-v3.0.0/workbox-sw.js')
 
@@ -11,8 +11,8 @@ workbox.setConfig({ debug: true })
   suffix: 'v1',
   precache: 'workbox-precache',
   runtime: 'workbox-runtime'
-}) */
-
+})
+ */
 workbox.core.setLogLevel(workbox.core.LOG_LEVELS.debug)
 
 workbox.skipWaiting()
@@ -21,12 +21,6 @@ workbox.clientsClaim()
 // Precaching
 
 workbox.precaching.precacheAndRoute([])
-
-/* workbox.precaching.addPlugins([
-    new workbox.broadcastUpdate.Plugin({
-        channelName: 'api-updates',
-      })
-]); */
 
 // Runtime caching
 
@@ -48,8 +42,14 @@ workbox.routing.registerRoute(
 )
 
 workbox.routing.registerRoute(
-  new RegExp('(http[s]?:\/\/)?([^\/\s]+\/)favorites'),
-  workbox.strategies.staleWhileRevalidate()
+  /(http[s]?:\/\/)?([^\/\s]+\/)favorites/,
+  workbox.strategies.staleWhileRevalidate({
+    plugins: [
+      new workbox.broadcastUpdate.Plugin({
+        channelName: 'pwatter-channel'
+      })
+    ]
+  })
 )
 
 // Google Analytics

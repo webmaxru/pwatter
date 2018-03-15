@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -21,6 +21,10 @@ import { ControlBroadcastComponent } from './control-broadcast/control-broadcast
 
 import { WindowRef } from './window-ref';
 
+export function initConfiguration(configService: ConfigService): Function {
+  return () => configService.load();
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +43,12 @@ import { WindowRef } from './window-ref';
   ],
   providers: [
     ConfigService,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initConfiguration,
+      deps: [ConfigService],
+      multi: true
+    },
     TweetService,
     PushService,
     WindowRef
