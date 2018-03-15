@@ -24,7 +24,7 @@ export class ControlPushComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.VAPID_PUBLIC_KEY = this.configService.get('VAPID_PUBLIC_KEY')
+    this.VAPID_PUBLIC_KEY = this.configService.getConfig('VAPID_PUBLIC_KEY')
   }
 
   subscribeToPush() {

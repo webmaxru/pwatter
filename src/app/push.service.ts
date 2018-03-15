@@ -14,7 +14,7 @@ export class PushService {
   private API_URL: string
 
   constructor(private http: HttpClient, private configService: ConfigService) {
-    this.API_URL = this.configService.get('API_URL')
+    this.API_URL = this.configService.getConfig('API_URL')
   }
 
   urlBase64ToUint8Array(base64String) {
