@@ -1,5 +1,8 @@
 # A simple app for the PWA Workshop
 
+## The workshop guide (open for your comments)
+https://bit.ly/workbox-workshop
+
 ## Prerequisites
 1. Latest stable versions of `node`, `npm` installed.
 2. Having `yarn` installed is strongly recommended.
