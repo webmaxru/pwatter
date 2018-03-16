@@ -1,24 +1,20 @@
-/**
- * Welcome to your Workbox-powered service worker!
- *
- * You'll need to register this file in your web app and you should
- * disable HTTP caching for this file too.
- * See https://goo.gl/nhQhGp
- *
- * The rest of the code is auto-generated. Please don't update this file
- * directly; instead, make changes to your Workbox build configuration
- * and re-run your build process.
- * See https://goo.gl/2aRDsh
- */
+// Let's have it locally. Run "workbox copyLibraries dist"
+importScripts('workbox-v3.0.0/workbox-sw.js')
 
-importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.0.0/workbox-sw.js");
+// SETTINGS
 
-/**
- * The workboxSW.precacheAndRoute() method efficiently caches and responds to
- * requests for URLs in the manifest.
- * See https://goo.gl/S9QRab
- */
-self.__precacheManifest = [
+// Verbose logging even for the production
+workbox.setConfig({ debug: true })
+workbox.core.setLogLevel(workbox.core.LOG_LEVELS.debug)
+
+// Modify SW update cycle
+workbox.skipWaiting()
+workbox.clientsClaim()
+
+// PRECACHING
+
+// We inject manifest here using "workbox-build" in workbox-build-inject.js
+workbox.precaching.precacheAndRoute([
   {
     "url": "3rdpartylicenses.txt",
     "revision": "3110f4db026710261a0b58c2cca7e377"
@@ -83,8 +79,37 @@ self.__precacheManifest = [
     "url": "styles.b3f30bba4ac11acb8bbb.bundle.css",
     "revision": "d4c9d7710d7be30d203e0538c3fa1d5e"
   }
-].concat(self.__precacheManifest || []);
-workbox.precaching.suppressWarnings();
-workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
+])
 
-workbox.routing.registerRoute(/https:\/\/fonts.(?:googleapis|gstatic).com\/(.*)/, workbox.strategies.staleWhileRevalidate(), 'GET');
+// RUNTIME CACHING
+
+// Google fonts
+workbox.routing.registerRoute(
+  new RegExp('https://fonts.(?:googleapis|gstatic).com/(.*)'),
+  workbox.strategies.staleWhileRevalidate({
+    cacheName: 'googleapis',
+    plugins: [
+      new workbox.expiration.Plugin({
+        maxEntries: 30
+      })
+    ]
+  })
+)
+
+// API with network-first strategy
+workbox.routing.registerRoute(
+  /(http[s]?:\/\/)?([^\/\s]+\/)timeline/,
+  workbox.strategies.networkFirst()
+)
+
+// API with cache-first strategy
+workbox.routing.registerRoute(
+  /(http[s]?:\/\/)?([^\/\s]+\/)favorites/,
+  workbox.strategies.cacheFirst()
+)
+
+// PUSH NOTIFICATIONS
+
+// BACKGROUND SYNC
+
+// GOOGLE ANALYTICS
