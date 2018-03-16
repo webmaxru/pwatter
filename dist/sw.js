@@ -32,10 +32,6 @@ workbox.precaching.precacheAndRoute([
     "revision": "33e75c4ec8d559bfc69d236d8bc3709b"
   },
   {
-    "url": "assets/css/fonts.css",
-    "revision": "7e982b662b17ffbc41fb86ce68a64666"
-  },
-  {
     "url": "assets/favicon/android-chrome-192x192.png",
     "revision": "a3fae3855e3cbed6db036fba32d2dbf4"
   },
@@ -58,10 +54,6 @@ workbox.precaching.precacheAndRoute([
   {
     "url": "assets/images/logo.png",
     "revision": "f5fd664cc80a6c77d6c79e5bd2653426"
-  },
-  {
-    "url": "assets/material-design-icons/iconfont/material-icons.css",
-    "revision": "eb1fa348034b042e91c3b79f5c01beb6"
   },
   {
     "url": "favicon.ico",
