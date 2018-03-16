@@ -45,6 +45,62 @@ workbox.routing.registerRoute(
 
 // PUSH NOTIFICATIONS
 
+// Receive push and show a notification
+self.addEventListener('push', function (event) {
+  console.log('[Service Worker]: Received push event', event)
+
+  var notificationData = {}
+
+  if (event.data.json()) {
+    notificationData = event.data.json().notification // "notification node is specific for @angular/service-worker
+  } else {
+    notificationData = {
+      title: 'Something Has Happened',
+      message: 'Something you might want to check out',
+      icon: '/assets/images/logo.png'
+    }
+  }
+
+  self.registration.showNotification(notificationData.title, notificationData)
+})
+
+// Custom notification actions
+self.addEventListener('notificationclick', function (event) {
+  console.log('[Service Worker]: Received notificationclick event')
+
+  event.notification.close()
+
+  if (event.action == 'opentweet') {
+    console.log('[Service Worker]: Performing action opentweet')
+
+    event.waitUntil(
+      clients.openWindow(event.notification.data).then(function (windowClient) {
+        // do something with the windowClient.
+      })
+    )
+  } else {
+    console.log('[Service Worker]: Performing default click action')
+
+    // This looks to see if the current is already open and
+    // focuses if it is
+    event.waitUntil(
+
+      clients.matchAll({
+        includeUncontrolled: true,
+        type: 'window'
+      })
+        .then(function (clientList) {
+          for (var i = 0; i < clientList.length; i++) {
+            var client = clientList[i]
+            if (client.url == '/' && 'focus' in client)
+              return client.focus()
+          }
+          if (clients.openWindow)
+            return clients.openWindow('/')
+        }))
+  }
+})
+
 // BACKGROUND SYNC
 
 // GOOGLE ANALYTICS
