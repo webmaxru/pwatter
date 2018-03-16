@@ -3,6 +3,9 @@ module.exports = {
   globPatterns: [
     '**/*.{txt,json,png,ico,html,js,css}'
   ],
+  globIgnores: [
+    'workbox-v3.0.0/**/*'
+  ],
   swDest: 'dist/sw.js',
 
   // Define runtime caching rules
