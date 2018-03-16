@@ -17,7 +17,6 @@ import { TweetFeedsComponent } from './tweet-feeds/tweet-feeds.component';
 
 import { PostTweetComponent } from './post-tweet/post-tweet.component';
 import { ControlPushComponent } from './control-push/control-push.component';
-import { ControlBroadcastComponent } from './control-broadcast/control-broadcast.component';
 
 import { WindowRef } from './window-ref';
 
@@ -31,7 +30,6 @@ export function initConfiguration(configService: ConfigService): Function {
     TweetListComponent,
     ControlPushComponent,
     TweetFeedsComponent,
-    ControlBroadcastComponent,
     PostTweetComponent
   ],
   imports: [

@@ -1,0 +1,44 @@
+{
+    "authn_services": [],
+    "authn_templates": [
+        {
+            "uuid": "SERVICE_CONFIG_ID",
+            "container_ref": "ORGANIZATION_ID",
+            "name": "New AuthN Template",
+            "configuration": {
+                "start_node_id": "passwordNode",
+                "success_node_id": "successNode",
+                "fail_node_id": "failedNode",
+                "default_step_up_behaviour": false,
+                "nodes": {
+                    "passwordNode": {
+                        "uuid": "PASSWORD_NODE_ID",
+                        "node_type": "PasswordNode",
+                        "display_name": "Password Login Node"
+                    }
+                },
+                "sequence_flow": [
+                    {
+                        "source_ref": "passwordNode",
+                        "target_ref": "successNode",
+                        "condition": "success",
+                        "allow_step_up": false
+                    },
+                    {
+                        "source_ref": "passwordNode",
+                        "target_ref": "failedNode",
+                        "condition": "",
+                        "allow_step_up": false
+                    }
+                ]
+            }
+        }
+    ],
+    "password_nodes": [],
+    "choice_nodes": [],
+    "oauth2_nodes": [],
+    "otp_nodes": [],
+    "otp_issuers": [],
+    "oauth2_node_providers": [],
+    "public_key_cred_nodes": []
+}

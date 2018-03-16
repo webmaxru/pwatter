@@ -8,21 +8,11 @@ module.exports = {
   ],
   swDest: 'dist/sw.js',
 
-  // Define runtime caching rules.
+  // Define runtime caching rules
   runtimeCaching: [
     {
-      // Match any request ends with .png, .jpg, .jpeg or .svg.
-      urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
-
-      // Apply a cache-first strategy.
-      handler: 'cacheFirst',
-
-      options: {
-        // Only cache 10 images.
-        expiration: {
-          maxEntries: 10
-        }
-      }
+      urlPattern: new RegExp('https://fonts.(?:googleapis|gstatic).com/(.*)'),
+      handler: 'staleWhileRevalidate'
     }
   ]
 }
