@@ -4,10 +4,49 @@
 
     gtag('config', 'UA-7105068-16', {
       'custom_map': { 'dimension1': 'online' }
-    });</script><meta charset="utf-8"><title>PWAtter</title><base href="/"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="manifest" href="manifest.json"><meta name="theme-color" content="#105B63"><script async src="https://cdn.jsdelivr.net/npm/pwacompat@2.0.6/pwacompat.min.js" integrity="sha384-GOaSLecPIMCJksN83HLuYf9FToOiQ2Df0+0ntv7ey8zjUHESXhthwvq9hXAZTifA" crossorigin="anonymous"></script><link href="styles.b3f30bba4ac11acb8bbb.bundle.css" rel="stylesheet"/></head><body><app-root>Loading...</app-root><script>// Check that service workers are registered
+    });</script><meta charset="utf-8"><title>PWAtter</title><base href="/"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="manifest" href="manifest.json"><meta name="theme-color" content="#105B63"><script async src="https://cdn.jsdelivr.net/npm/pwacompat@2.0.6/pwacompat.min.js" integrity="sha384-GOaSLecPIMCJksN83HLuYf9FToOiQ2Df0+0ntv7ey8zjUHESXhthwvq9hXAZTifA" crossorigin="anonymous"></script><link href="styles.b3f30bba4ac11acb8bbb.bundle.css" rel="stylesheet"/></head><body><app-root>Loading...</app-root><button id="btnInstall" disabled style="position: absolute; top: 23px; right: 16px; z-index: 1;">Install PWAtter</button><script>// Check that service workers are registered
     if ('serviceWorker' in navigator) {
       // Use the window load event to keep the page load performant
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('/sw.js');
       });
-    }</script><script type="text/javascript" src="inline.318b50c57b4eba3d437b.bundle.js"></script><script type="text/javascript" src="polyfills.7d45653c6826e2fefc7d.bundle.js"></script><script type="text/javascript" src="main.7da618cf86c4f3b7ce69.bundle.js"></script></body></html>
+    }</script>
+    <script>
+
+    btnInstall = document.querySelector('#btnInstall')
+
+    window.addEventListener('beforeinstallprompt', event => {
+
+      console.log('beforeinstallprompt event was fired')
+
+      // Prevent Chrome <= 67 from automatically showing the prompt
+      event.preventDefault();
+
+      // Stash the event so it can be triggered later.
+      this.installPromptEvent = event;
+
+      // Update the install UI to notify the user app can be installed
+      btnInstall.disabled = false;
+    });
+
+    btnInstall.addEventListener('click', () => {
+
+      // Update the install UI to remove the install button
+      btnInstall.disabled = true;
+
+      // Show the modal add to home screen dialog
+      installPromptEvent.prompt();
+
+      // Wait for the user to respond to the prompt
+      installPromptEvent.userChoice.then((choice) => {
+        if (choice.outcome === 'accepted') {
+          console.log('User accepted the A2HS prompt');
+        } else {
+          console.log('User dismissed the A2HS prompt');
+        }
+        // Clear the saved prompt since it can't be used again
+        installPromptEvent = null;
+      });
+    });
+    </script>  
+    <script type="text/javascript" src="inline.318b50c57b4eba3d437b.bundle.js"></script><script type="text/javascript" src="polyfills.7d45653c6826e2fefc7d.bundle.js"></script><script type="text/javascript" src="main.7da618cf86c4f3b7ce69.bundle.js"></script></body></html>

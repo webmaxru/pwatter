@@ -30,6 +30,7 @@
 
 <body>
   <app-root>Loading...</app-root>
+  <button id="btnInstall" disabled style="position: absolute; top: 23px; right: 16px; z-index: 1;">Install PWAtter</button>
 
   <script>
     // Check that service workers are registered
@@ -40,6 +41,45 @@
       });
     }
   </script>
+
+<script>
+
+    btnInstall = document.querySelector('#btnInstall')
+
+    window.addEventListener('beforeinstallprompt', event => {
+
+      console.log('beforeinstallprompt event was fired')
+
+      // Prevent Chrome <= 67 from automatically showing the prompt
+      event.preventDefault();
+
+      // Stash the event so it can be triggered later.
+      this.installPromptEvent = event;
+
+      // Update the install UI to notify the user app can be installed
+      btnInstall.disabled = false;
+    });
+
+    btnInstall.addEventListener('click', () => {
+
+      // Update the install UI to remove the install button
+      btnInstall.disabled = true;
+
+      // Show the modal add to home screen dialog
+      installPromptEvent.prompt();
+
+      // Wait for the user to respond to the prompt
+      installPromptEvent.userChoice.then((choice) => {
+        if (choice.outcome === 'accepted') {
+          console.log('User accepted the A2HS prompt');
+        } else {
+          console.log('User dismissed the A2HS prompt');
+        }
+        // Clear the saved prompt since it can't be used again
+        installPromptEvent = null;
+      });
+    });
+    </script> 
 
 </body>
 
