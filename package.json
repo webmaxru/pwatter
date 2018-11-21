@@ -8,10 +8,7 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "workbox-build-inject": "node workbox-build-inject.js",
-    "build-full-workbox": "ng build --prod && npm run workbox-build-inject",
-    "build-full-workbox-default": "ng build --prod && workbox generateSW"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
@@ -50,6 +47,6 @@
     "ts-node": "~4.1.0",
     "tslint": "~5.9.1",
     "typescript": "~2.5.3",
-    "workbox-build": "^3.0.0"
+    "workbox-build": "^3.6.3"
   }
 }
