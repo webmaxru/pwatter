@@ -8,7 +8,10 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "workbox-build-inject": "node workbox-build-inject.js",
+    "build-full-workbox": "ng build --prod && npm run workbox-build-inject",
+    "build-full-workbox-default": "ng build --prod && workbox generateSW"
   },
   "private": true,
   "dependencies": {
