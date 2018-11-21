@@ -104,6 +104,11 @@ self.addEventListener('notificationclick', function (event) {
   }
 })
 
+// Closing notification action
+self.addEventListener('notificationclose', function (event) {
+  log('[Service Worker]: Received notificationclose event')
+})
+
 // BACKGROUND SYNC
 
 // Registering a route for retries
