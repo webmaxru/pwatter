@@ -3,6 +3,9 @@ importScripts('workbox-v3.6.3/workbox-sw.js')
 
 // SETTINGS
 
+// Use local version of Workbox libraries
+workbox.setConfig({modulePathPrefix: 'workbox-v3.6.3/'})
+
 // Verbose logging even for the production
 workbox.setConfig({ debug: true })
 workbox.core.setLogLevel(workbox.core.LOG_LEVELS.debug)

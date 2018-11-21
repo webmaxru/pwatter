@@ -3,6 +3,9 @@ importScripts('workbox-v3.6.3/workbox-sw.js')
 
 // SETTINGS
 
+// Use local version of Workbox libraries
+workbox.setConfig({modulePathPrefix: 'workbox-v3.6.3/'})
+
 // Verbose logging even for the production
 workbox.setConfig({ debug: true })
 workbox.core.setLogLevel(workbox.core.LOG_LEVELS.debug)
@@ -32,28 +35,8 @@ workbox.precaching.precacheAndRoute([
     "revision": "33e75c4ec8d559bfc69d236d8bc3709b"
   },
   {
-    "url": "assets/favicon/android-chrome-192x192.png",
-    "revision": "a3fae3855e3cbed6db036fba32d2dbf4"
-  },
-  {
-    "url": "assets/favicon/android-chrome-512x512.png",
-    "revision": "3b82f6028a3d753c475198f55f52d25b"
-  },
-  {
-    "url": "assets/favicon/apple-touch-icon.png",
-    "revision": "ae64503f5ed8bbe73d2b51831322950a"
-  },
-  {
-    "url": "assets/favicon/favicon-16x16.png",
-    "revision": "a8174c82b47d7380f4d5cc5bb9d2d095"
-  },
-  {
-    "url": "assets/favicon/favicon-32x32.png",
-    "revision": "50f4b2cd16cc9661ae16cf69e6812920"
-  },
-  {
     "url": "assets/images/logo.png",
-    "revision": "f5fd664cc80a6c77d6c79e5bd2653426"
+    "revision": "7476b3901cd882488fddd28653b3fc15"
   },
   {
     "url": "favicon.ico",
