@@ -1,5 +1,5 @@
 // Let's have it locally. Run "workbox copyLibraries dist"
-importScripts('workbox-v3.0.0/workbox-sw.js')
+importScripts('workbox-v3.6.3/workbox-sw.js')
 
 // SETTINGS
 
@@ -32,28 +32,40 @@ workbox.precaching.precacheAndRoute([
     "revision": "33e75c4ec8d559bfc69d236d8bc3709b"
   },
   {
-    "url": "assets/favicon/android-chrome-192x192.png",
-    "revision": "a3fae3855e3cbed6db036fba32d2dbf4"
+    "url": "assets/icons/icon-128x128.png",
+    "revision": "573ed1ebc07927ece4c15af50e42621c"
   },
   {
-    "url": "assets/favicon/android-chrome-512x512.png",
-    "revision": "3b82f6028a3d753c475198f55f52d25b"
+    "url": "assets/icons/icon-144x144.png",
+    "revision": "4d0cf2a482f47585629895849f8cbabb"
   },
   {
-    "url": "assets/favicon/apple-touch-icon.png",
-    "revision": "ae64503f5ed8bbe73d2b51831322950a"
+    "url": "assets/icons/icon-152x152.png",
+    "revision": "ddeef34939ef17bb69624205140857c2"
   },
   {
-    "url": "assets/favicon/favicon-16x16.png",
-    "revision": "a8174c82b47d7380f4d5cc5bb9d2d095"
+    "url": "assets/icons/icon-192x192.png",
+    "revision": "ed53cea5f0ba2c6369ebf2e08de0cfd4"
   },
   {
-    "url": "assets/favicon/favicon-32x32.png",
-    "revision": "50f4b2cd16cc9661ae16cf69e6812920"
+    "url": "assets/icons/icon-384x384.png",
+    "revision": "6d41d9911c4281e7427927af5a093dab"
+  },
+  {
+    "url": "assets/icons/icon-512x512.png",
+    "revision": "ada841d3ed8f29ac831468b43d66b9c4"
+  },
+  {
+    "url": "assets/icons/icon-72x72.png",
+    "revision": "c012c516689e3e9debb06b9749c8fcaf"
+  },
+  {
+    "url": "assets/icons/icon-96x96.png",
+    "revision": "8c0d8df68f5007840dc205958ea5be0a"
   },
   {
     "url": "assets/images/logo.png",
-    "revision": "f5fd664cc80a6c77d6c79e5bd2653426"
+    "revision": "7476b3901cd882488fddd28653b3fc15"
   },
   {
     "url": "favicon.ico",
@@ -73,7 +85,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "manifest.json",
-    "revision": "648e401cb8d2790ff9a737382a00e9e0"
+    "revision": "e9c43483cf3f84f96be0f4be9158dcb5"
   },
   {
     "url": "polyfills.7d45653c6826e2fefc7d.bundle.js",

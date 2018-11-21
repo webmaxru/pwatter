@@ -1,5 +1,5 @@
 // Let's have it locally. Run "workbox copyLibraries dist"
-importScripts('workbox-v3.0.0/workbox-sw.js')
+importScripts('workbox-v3.6.3/workbox-sw.js')
 
 // SETTINGS
 
