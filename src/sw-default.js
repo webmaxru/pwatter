@@ -103,7 +103,7 @@ self.addEventListener('notificationclick', function (event) {
 
 // Closing notification action
 self.addEventListener('notificationclose', function (event) {
-  log('[Service Worker]: Received notificationclose event')
+  console.log('[Service Worker]: Received notificationclose event')
 })
 
 
