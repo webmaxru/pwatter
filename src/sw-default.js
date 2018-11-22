@@ -124,4 +124,11 @@ workbox.routing.registerRoute(
   'POST'
 )
 
+// BROADCAST UPDATE
+
+// Registering a broadcast update plugin
+workbox.precaching.addPlugins([
+  new workbox.broadcastUpdate.Plugin('app-shell')
+]);
+
 // GOOGLE ANALYTICS

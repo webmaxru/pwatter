@@ -76,7 +76,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "index.html",
-    "revision": "87046ede5404a91d204d21ba284ac49e"
+    "revision": "8a374dd9dca679fed3b552089d564c09"
   },
   {
     "url": "inline.318b50c57b4eba3d437b.bundle.js",
@@ -204,5 +204,12 @@ workbox.routing.registerRoute(
   }),
   'POST'
 )
+
+// BROADCAST UPDATE
+
+// Registering a broadcast update plugin
+workbox.precaching.addPlugins([
+  new workbox.broadcastUpdate.Plugin('app-shell')
+]);
 
 // GOOGLE ANALYTICS

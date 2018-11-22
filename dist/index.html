@@ -49,4 +49,17 @@
           });
         });
         </script> 
+    <script>
+
+    if ('BroadcastChannel' in self) {
+      const updateChannel = new BroadcastChannel('app-shell');
+
+      updateChannel.addEventListener('message', event => {
+        if (confirm(`New Version is available! OK to refresh`)) {
+            window.location.reload();
+          }
+      });
+    }
+        
+    </script>
     <script type="text/javascript" src="inline.318b50c57b4eba3d437b.bundle.js"></script><script type="text/javascript" src="polyfills.7d45653c6826e2fefc7d.bundle.js"></script><script type="text/javascript" src="main.7da618cf86c4f3b7ce69.bundle.js"></script></body></html>

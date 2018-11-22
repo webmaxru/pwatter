@@ -81,7 +81,21 @@
         installPromptEvent = null;
       });
     });
-    </script> 
+    </script>
+
+    <script>
+
+    if ('BroadcastChannel' in self) {
+      const updateChannel = new BroadcastChannel('app-shell');
+
+      updateChannel.addEventListener('message', event => {
+        if (confirm(`New Version is available! OK to refresh`)) {
+            window.location.reload();
+          }
+      });
+    }
+        
+    </script>
 
 </body>
 
