@@ -76,7 +76,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "index.html",
-    "revision": "adacffde436f9837ee6b9264cb78100e"
+    "revision": "0c9a21e87d2c323cfab6d06d48d9f6f4"
   },
   {
     "url": "inline.318b50c57b4eba3d437b.bundle.js",
@@ -185,6 +185,11 @@ self.addEventListener('notificationclick', function (event) {
   }
 })
 
+// Closing notification action
+self.addEventListener('notificationclose', function (event) {
+  log('[Service Worker]: Received notificationclose event')
+})
+
 // BACKGROUND SYNC
 
 // Registering a route for retries
@@ -199,6 +204,13 @@ workbox.routing.registerRoute(
   }),
   'POST'
 )
+
+// BROADCAST UPDATE
+
+// Registering a broadcast update plugin
+workbox.precaching.addPlugins([
+  new workbox.broadcastUpdate.Plugin('app-shell')
+]);
 
 // GOOGLE ANALYTICS
 

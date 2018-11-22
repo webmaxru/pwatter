@@ -104,6 +104,11 @@ self.addEventListener('notificationclick', function (event) {
   }
 })
 
+// Closing notification action
+self.addEventListener('notificationclose', function (event) {
+  log('[Service Worker]: Received notificationclose event')
+})
+
 // BACKGROUND SYNC
 
 // Registering a route for retries
@@ -118,6 +123,13 @@ workbox.routing.registerRoute(
   }),
   'POST'
 )
+
+// BROADCAST UPDATE
+
+// Registering a broadcast update plugin
+workbox.precaching.addPlugins([
+  new workbox.broadcastUpdate.Plugin('app-shell')
+]);
 
 // GOOGLE ANALYTICS
 
