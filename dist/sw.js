@@ -76,7 +76,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "index.html",
-    "revision": "87046ede5404a91d204d21ba284ac49e"
+    "revision": "fe782eaa7cebf1729883f0a0929a35e0"
   },
   {
     "url": "inline.318b50c57b4eba3d437b.bundle.js",
@@ -187,7 +187,7 @@ self.addEventListener('notificationclick', function (event) {
 
 // Closing notification action
 self.addEventListener('notificationclose', function (event) {
-  log('[Service Worker]: Received notificationclose event')
+  console.log('[Service Worker]: Received notificationclose event')
 })
 
 // BACKGROUND SYNC
